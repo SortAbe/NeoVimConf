@@ -48,3 +48,11 @@ vim.api.nvim_buf_create_user_command(0, 'Cl',
     vim.cmd("silent! %y+")
   end,
 { nargs = 0 })
+
+vim.api.nvim_buf_create_user_command(0, 'Update',
+  function(opts)
+    vim.cmd("PackerSync")
+    vim.cmd("TSUpdate")
+    vim.cmd("CocUpdate")
+  end,
+{ nargs = 0 })
