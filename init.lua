@@ -46,7 +46,6 @@ require("plugins")
 require("java_coc")
 require("commands")
 vim.o.signcolumn= "number"
-vim.o.noexpandtab = true
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", {silent = true})
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", {silent = true})
 
