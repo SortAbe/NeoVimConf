@@ -21,17 +21,6 @@ vim.o.termguicolors = true
 vim.cmd "colorscheme myown"
 vim.o.fillchars='eob: '
 
---Return cursor shape upon exit
-local group = vim.api.nvim_create_augroup("ReturnCursor", {clear = true})
-vim.api.nvim_create_autocmd("VimLeave", {command = "set guicursor=a:ver20-blinkon700-blinkoff300", group = group})
-
---Remeber folds
-local enter = vim.api.nvim_create_augroup("Enter", {clear = true})
-vim.api.nvim_create_autocmd("BufEnter", {pattern = "?*", command = "silent! loadview"})
-vim.api.nvim_create_autocmd("BufEnter", {pattern = "*.py*", command = "set noet"})
-local leave = vim.api.nvim_create_augroup("Leave", {clear = true})
-vim.api.nvim_create_autocmd("BufLeave", {pattern = "?*", command = "mkview", group = leave})
-
 --Tree
 require("tree")
 require("treeMaping")
@@ -51,3 +40,14 @@ vim.keymap.set("n", "<A-k>", ":bprev<CR>", {silent = true})
 
 vim.opt.expandtab = false 
 vim.opt.tabstop = 4
+
+--Remeber folds
+vim.api.nvim_create_autocmd("BufEnter", {pattern = "*.py*", command = "set noet"})
+local enter = vim.api.nvim_create_augroup("Enter", {clear = true})
+vim.api.nvim_create_autocmd({"BufEnter","BufWinEnter"}, {pattern = "*.*", command = "silent! loadview", group = "Enter"})
+local leave = vim.api.nvim_create_augroup("Leave", {clear = true})
+vim.api.nvim_create_autocmd({"BufLeave","BufWinLeave"}, {pattern = "*.*", command = "mkview", group = "Leave"})
+
+--Return cursor shape upon exit
+local group = vim.api.nvim_create_augroup("ReturnCursor", {clear = true})
+vim.api.nvim_create_autocmd("VimLeave", {command = "set guicursor=a:ver20-blinkon700-blinkoff300", group = group})

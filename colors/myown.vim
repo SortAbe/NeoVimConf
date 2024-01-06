@@ -95,7 +95,7 @@ hi Cursor guifg=#000000 guibg=#00ff00 gui=NONE cterm=NONE
 hi ErrorMsg guifg=#ffffff guibg=#ff0000 gui=NONE cterm=NONE
 hi Conceal guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi FoldColumn guifg=#add8e6 guibg=NONE gui=NONE cterm=NONE
-hi Folded guifg=#00008b guibg=#d3d3d3 gui=bold cterm=bold
+hi Folded guifg=#00ff00 guibg=#000000 gui=bold cterm=bold
 hi IncSearch guifg=#00ff00 guibg=NONE gui=reverse cterm=reverse
 hi MatchParen guifg=NONE guibg=#008b8b gui=NONE cterm=NONE
 hi ModeMsg guifg=NONE guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
