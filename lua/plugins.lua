@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
 
 	use { 'nvim-treesitter/playground' }
 
-	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} --Will require nerd fonts
+	--which can be found here: https://www.nerdfonts.com/font-downloads
 
 end)

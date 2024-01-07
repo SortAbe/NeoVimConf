@@ -1,0 +1,6 @@
+{
+	"diagnostic.errorSign": "\uf530",
+	"diagnostic.warningSign": "\ue654",
+	"diagnostic.infoSign": "\uf129",
+	"diagnostic.hintSign": "\uf12a",
+}

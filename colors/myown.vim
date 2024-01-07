@@ -79,6 +79,13 @@ hi LineNr guifg=#7A82A3 guibg=NONE gui=NONE cterm=NONE
 hi CursorLineNr guifg=#7A82A3 guibg=#666666 gui=NONE cterm=NONE
 hi Error guifg=#ff0000 guibg=#ffffff gui=reverse cterm=reverse
 
+"Coc colors
+hi CocErrorSign guifg=#ff0000 guibg=NONE gui=NONE cterm=NONE
+hi CocWarningSign guifg=#ffff00 guibg=NONE gui=NONE cterm=NONE
+hi CocInfoSign guifg=#00ff00 guibg=NONE gui=NONE cterm=NONE
+hi CocHintSign guifg=#62E0FF guibg=NONE gui=NONE cterm=NONE
+
+
 hi ColorColumn guifg=NONE guibg=#8b0000 gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#666666 gui=NONE cterm=NONE
 hi EndOfBuffer guifg=#add8e6 guibg=NONE gui=NONE cterm=NONE
