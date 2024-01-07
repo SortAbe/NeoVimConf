@@ -34,6 +34,7 @@ require 'colorizer'.setup()
 require("plugins")
 require("java_coc")
 require("commands")
+require("buff")
 vim.o.signcolumn= "number"
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", {silent = true})
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", {silent = true})
@@ -51,3 +52,4 @@ vim.api.nvim_create_autocmd({"BufLeave","BufWinLeave"}, {pattern = "*.*", comman
 --Return cursor shape upon exit
 local group = vim.api.nvim_create_augroup("ReturnCursor", {clear = true})
 vim.api.nvim_create_autocmd("VimLeave", {command = "set guicursor=a:ver20-blinkon700-blinkoff300", group = group})
+
