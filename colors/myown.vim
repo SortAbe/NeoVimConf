@@ -78,6 +78,7 @@ hi Delimiter guifg=#ffa500 guibg=NONE gui=NONE cterm=NONE
 hi LineNr guifg=#7A82A3 guibg=NONE gui=NONE cterm=NONE
 hi CursorLineNr guifg=#7A82A3 guibg=#666666 gui=NONE cterm=NONE
 hi Error guifg=#ff0000 guibg=#ffffff gui=reverse cterm=reverse
+hi NonText guifg=#444444 guibg=NONE gui=NONE cterm=NONE
 
 "Coc colors
 hi CocErrorSign guifg=#ff0000 guibg=NONE gui=NONE cterm=NONE
@@ -107,7 +108,6 @@ hi IncSearch guifg=#00ff00 guibg=NONE gui=reverse cterm=reverse
 hi MatchParen guifg=NONE guibg=#008b8b gui=NONE cterm=NONE
 hi ModeMsg guifg=NONE guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 hi MoreMsg guifg=#2e8b57 guibg=NONE gui=NONE cterm=NONE
-hi NonText guifg=#add8e6 guibg=#4d4d4d gui=NONE cterm=NONE
 hi Question guifg=#00ff00 guibg=NONE gui=NONE cterm=NONE
 hi Search guifg=#000000 guibg=#ffff00 gui=NONE cterm=NONE
 hi SignColumn guifg=#008b8b guibg=NONE gui=NONE cterm=NONE

@@ -1,21 +1,30 @@
 --NumlineToggle
-vim.api.nvim_buf_create_user_command(0, 'Ye',
+vim.api.nvim_create_user_command('Num',
   function(opts)
-    vim.cmd("set rnu")
-    vim.cmd("set signcolumn=number")
-    vim.cmd("set nu")
+	if vim.o.number then
+		vim.cmd("set nornu")
+		vim.cmd("set signcolumn=no")
+		vim.cmd("set nu!")
+	else
+		vim.cmd("set nu")
+		vim.cmd("set rnu")
+		vim.cmd("set signcolumn=number")
+	end
   end,
 { nargs = 0 })
 
-vim.api.nvim_buf_create_user_command(0, 'No',
+vim.api.nvim_create_user_command('Spell',
   function(opts)
-    vim.cmd("set nornu")
-    vim.cmd("set signcolumn=no")
-    vim.cmd("set nu!")
+	if vim.o.spell then
+		vim.cmd("set nospell")
+	else
+		vim.cmd("set spell")
+	end
   end,
 { nargs = 0 })
 
-vim.api.nvim_buf_create_user_command(0, 'Cap',
+
+vim.api.nvim_create_user_command('Cap',
   function(opts)
     vim.cmd("silent! %s/\\<where\\>/\\U&/g")
     vim.cmd("silent! %s/\\<select\\>/\\U&/g")
@@ -43,13 +52,13 @@ vim.api.nvim_buf_create_user_command(0, 'Cap',
   end,
 { nargs = 0 })
 
-vim.api.nvim_buf_create_user_command(0, 'Cl',
+vim.api.nvim_create_user_command('Cl',
   function(opts)
     vim.cmd("silent! %y+")
   end,
 { nargs = 0 })
 
-vim.api.nvim_buf_create_user_command(0, 'Update',
+vim.api.nvim_create_user_command('Update',
   function(opts)
     vim.cmd("PackerSync")
     vim.cmd("TSUpdate")
