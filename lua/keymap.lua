@@ -2,7 +2,6 @@
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", {silent = true})
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", {silent = true})
 
-
 --Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Space>ff', builtin.find_files, {})

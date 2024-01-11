@@ -1,6 +1,6 @@
 {
-	"diagnostic.errorSign": "\uf530",
-	"diagnostic.warningSign": "\ue654",
+	"diagnostic.errorSign": "\udb83\udce6",
+	"diagnostic.warningSign": "\uea6c",
 	"diagnostic.infoSign": "\uf129",
 	"diagnostic.hintSign": "\uf12a",
 }
