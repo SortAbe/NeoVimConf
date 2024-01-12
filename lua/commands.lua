@@ -1,4 +1,4 @@
---NumlineToggle
+--Gutter toggle
 vim.api.nvim_create_user_command('Num',
   function(opts)
 	if vim.o.number then
@@ -13,6 +13,14 @@ vim.api.nvim_create_user_command('Num',
   end,
 { nargs = 0 })
 
+--Copy entire buffer into system clipboard
+vim.api.nvim_create_user_command('Copy',
+  function(opts)
+    vim.cmd("silent! %y+")
+  end,
+{ nargs = 0 })
+
+--Toggle spelling
 vim.api.nvim_create_user_command('Spell',
   function(opts)
 	if vim.o.spell then
@@ -23,6 +31,16 @@ vim.api.nvim_create_user_command('Spell',
   end,
 { nargs = 0 })
 
+--Wrap toggle
+vim.api.nvim_create_user_command('Wrap',
+  function(opts)
+	if vim.o.wrap then
+		vim.cmd("set nowrap")
+	else
+		vim.cmd("set wrap")
+	end
+  end,
+{ nargs = 0 })
 
 vim.api.nvim_create_user_command('Cap',
   function(opts)
@@ -49,12 +67,6 @@ vim.api.nvim_create_user_command('Cap',
     vim.cmd("silent! %s/\\<null\\>/\\U&/g")
     vim.cmd("silent! %s/\\<is\\>/\\U&/g")
 	vim.cmd("noh")
-  end,
-{ nargs = 0 })
-
-vim.api.nvim_create_user_command('Cl',
-  function(opts)
-    vim.cmd("silent! %y+")
   end,
 { nargs = 0 })
 
