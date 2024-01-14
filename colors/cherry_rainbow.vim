@@ -1,4 +1,4 @@
-" Name:         myown
+" Name:         cherry_rainbow
 
 set background=dark
 

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/work/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/home/work/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",

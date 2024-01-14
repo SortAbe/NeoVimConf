@@ -5,6 +5,11 @@ require("treeMaping")
 --Telescope
 require("tele")
 
+--Navigation NeoTree
+
+--StatusLine lualine
+require("line")
+
 --Plugins
 require("plugins")
 require("java_coc")
@@ -30,6 +35,7 @@ vim.o.incsearch = true
 
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.o.wrap = false
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set backspace=indent,eol,start"
 
@@ -41,8 +47,8 @@ vim.o.laststatus = 0
 vim.opt.mouse = ""
 
 vim.o.termguicolors = true
-vim.cmd "colorscheme myown"
 vim.o.fillchars='eob: '
+vim.o.shortmess='S'
 
 vim.opt.expandtab = false 
 vim.opt.tabstop = 4
@@ -65,3 +71,8 @@ vim.api.nvim_create_autocmd("VimLeave", {command = "set guicursor=a:ver20-blinko
 --Python
 vim.api.nvim_create_autocmd("BufEnter", {pattern = "*.py*", command = "set noet"})
 vim.cmd "let g:python3_host_prog = \'/usr/bin/python3\'"
+
+--Theme
+vim.cmd "colorscheme cherry_rainbow"
+
+require("neoTree")
