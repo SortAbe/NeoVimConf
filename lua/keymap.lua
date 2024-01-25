@@ -1,6 +1,8 @@
 --Custom
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", {silent = true})
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", {silent = true})
+vim.keymap.set('n', '<Space>t', ":Neotree<CR>", {silent = true})
+vim.keymap.set('n', '<TAB>', "<C-W>w", {silent = true})
 
 --Telescope
 local builtin = require('telescope.builtin')

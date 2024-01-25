@@ -42,6 +42,15 @@ vim.api.nvim_create_user_command('Wrap',
   end,
 { nargs = 0 })
 
+--Clear system cache
+vim.api.nvim_create_user_command('Clear',
+  function(opts)
+    vim.cmd("silent! !rm -rf ~/.local/state/nvim/view/*")
+	vim.api.nvim_input("<C-l>")
+  end,
+{ nargs = 0 })
+
+
 vim.api.nvim_create_user_command('Cap',
   function(opts)
     vim.cmd("silent! %s/\\<where\\>/\\U&/g")

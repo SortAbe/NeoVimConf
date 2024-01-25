@@ -3,4 +3,5 @@
 	"diagnostic.warningSign": "\uea6c",
 	"diagnostic.hintSign": "\udb80\udf36",
 	"diagnostic.infoSign": "\udb81\ude4e",
+	"tsserver.tsconfigPath": "~/.config/nvim/lsp_config",
 }
