@@ -1,17 +1,8 @@
 " Name:         cherry_rainbow
-
 set background=dark
 hi clear
 let g:colors_name = 'cherry_rainbow'
 let s:t_Co = &t_Co
-
-"if (has('termguicolors') && &termguicolors) || has('gui_running')
-"  let g:terminal_ansi_colors = ['#000000', '#cd0000', '#00cd00', '#cdcd00', '#0087ff', '#cd00cd', '#00cdcd', '#e5e5e5', '#7f7f7f', '#ff0000', '#00ff00', '#ffff00', '#5c5cff', '#ff00ff', '#00ffff', '#ffffff']
-  " Nvim uses g:terminal_color_{0-15} instead
-"  for i in range(g:terminal_ansi_colors->len())
-"    let g:terminal_color_{i} = g:terminal_ansi_colors[i]
-"  endfor
-"endif
 
 hi! link VertSplit StatusLineNC
 hi! link StatusLineTerm StatusLine
@@ -75,15 +66,17 @@ hi SpecialComment guifg=#00ff00 guibg=NONE gui=NONE cterm=NONE
 hi Number guifg=#62E0FF guibg=NONE gui=NONE cterm=NONE
 
 hi LineNr guifg=#7A82A3 guibg=NONE gui=NONE cterm=NONE
-hi CursorLineNr guifg=#00aa00 guibg=NONE gui=NONE cterm=NONE
+hi CursorLineNr guifg=#00cc00 guibg=NONE gui=NONE cterm=NONE
 hi Error guifg=#ff0000 guibg=#ffffff gui=reverse cterm=reverse
+hi DiagnosticError guifg=#ff0000 guibg=#ff0000 gui=reverse cterm=reverse
+hi DiagnosticWarn guifg=#ffff00 guibg=#ffff00 gui=reverse cterm=reverse
 hi NonText guifg=#444444 guibg=NONE gui=NONE cterm=NONE
 
 "Coc colors
 hi CocErrorSign guifg=#ff0000 guibg=NONE gui=NONE cterm=NONE
 hi CocWarningSign guifg=#ffff00 guibg=NONE gui=NONE cterm=NONE
 hi CocInfoSign guifg=#00ff00 guibg=NONE gui=NONE cterm=NONE
-hi CocHintSign guifg=#62E0FF guibg=NONE gui=NONE cterm=NONE
+hi CocHintSign guifg=#008b8b guibg=NONE gui=NONE cterm=NONE
 
 "Built in
 hi ColorColumn guifg=NONE guibg=#8b0000 gui=NONE cterm=NONE
