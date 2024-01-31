@@ -28,11 +28,3 @@ vim.api.nvim_set_hl(0, "@string.python", { link = "String" })
 vim.api.nvim_set_hl(0, "@constructor.python", { link = "Type" })
 vim.api.nvim_set_hl(0, "@string.regexp.python", { link = "SpecialComment" })
 vim.api.nvim_set_hl(0, "@variable.python", { link = "Variable" })
-vim.api.nvim_set_hl(0, "@method.call.python", { link = "Function" })
-vim.api.nvim_set_hl(0, "@field.python", { link = "Identifier" })
-vim.api.nvim_set_hl(0, "@conditional.python", { link = "Statement" })
-vim.api.nvim_set_hl(0, "@repeat.python", { link = "Statement" })
-
---All
-vim.api.nvim_set_hl(0, "@include", { link = "Include" })
-vim.api.nvim_set_hl(0, "@preproc", { link = "PreProc" })

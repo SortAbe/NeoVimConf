@@ -82,7 +82,7 @@ vim.api.nvim_create_user_command('Cap',
 vim.api.nvim_create_user_command('Update',
   function(opts)
     vim.cmd("PackerSync")
+    vim.cmd("MasonUpdate")
     vim.cmd("TSUpdate")
-    vim.cmd("CocUpdate")
   end,
 { nargs = 0 })
