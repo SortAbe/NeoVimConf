@@ -13,6 +13,8 @@ local icons = {
 	Class = '󰠱',
 	Keyword = '󰌆',
 }
+
+
 cmp.setup({
 	preselet = cmp.PreselectMode.Item,
 	snippet = { expand = function(args) require('luasnip').lsp_expand(args.body)
@@ -67,3 +69,18 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
+
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { link = 'Constant' })
+vim.api.nvim_set_hl(0, 'CmpItemKindText', { link = 'Constant' })
+vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link = 'Function' })
+vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { link = 'Function' })
+vim.api.nvim_set_hl(0, 'CmpItemKindConstructor', { link = 'Keyword' })
+vim.api.nvim_set_hl(0, 'CmpItemKindField', { link = 'Property' })
+vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { link = 'Variable' })
+vim.api.nvim_set_hl(0, 'CmpItemKindClass', { link = 'StorageClass' })
+vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { link = 'Property' })
+vim.api.nvim_set_hl(0, 'CmpItemKindValue', { link = 'Number' })
+vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { link = 'Keyword' })
+vim.api.nvim_set_hl(0, 'CmpItemKindSnippet', { link = 'SpecialKey' })
+vim.api.nvim_set_hl(0, 'CmpItemKindFile', { link = 'Property' })
+vim.api.nvim_set_hl(0, 'CmpItemKindFolder', { link = 'Directory' })

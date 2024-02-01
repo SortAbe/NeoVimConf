@@ -2,6 +2,7 @@
 vim.api.nvim_set_hl(0, "@type.builtin.java", { link = "StorageClass" })
 vim.api.nvim_set_hl(0, "@punctuation.bracket.java", { link = "Delimiter" })
 vim.api.nvim_set_hl(0, "@variable.java", { link = "Variable" })
+vim.api.nvim_set_hl(0, "@keyword.import.java", { link = "PreProc" })
 
 --SQL
 vim.api.nvim_set_hl(0, "@variable.sql", { link = "Constant" })
@@ -28,3 +29,9 @@ vim.api.nvim_set_hl(0, "@string.python", { link = "String" })
 vim.api.nvim_set_hl(0, "@constructor.python", { link = "Type" })
 vim.api.nvim_set_hl(0, "@string.regexp.python", { link = "SpecialComment" })
 vim.api.nvim_set_hl(0, "@variable.python", { link = "Variable" })
+vim.api.nvim_set_hl(0, "@keyword.directive.python", { link = "PreProc" })
+vim.api.nvim_set_hl(0, "@keyword.import.python", { link = "PreProc" })
+
+--Rust
+vim.api.nvim_set_hl(0, "@function.macro.rust", { link = "Macro" })
+vim.api.nvim_set_hl(0, "@keyword.rust", { link = "Keyword" })

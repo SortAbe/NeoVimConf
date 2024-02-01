@@ -3,13 +3,15 @@ require('tele') --Telescope
 require('fileEx') --Navigation NeoTree
 require('statusline') --StatusLine lualine
 require('tabs') --Buffer line
-require('completion') --CMP
+require('form') --Formatter NOT YET IMPLEMENTED
 require('lsp_config') --Mason and lsp_config
 require('colorizer').setup() --Colorizer
+require("chatgpt").setup({ api_key_cmd = "echo " .. os.getenv("GPT") })
 
 vim.cmd 'colorscheme cherry_rainbow' --Theme, needs to run before treeSitter below
 require('tree') --TreeSitter configuration
 require('mapping') --TreeSitter mapping
+require('completion') --CMP
 
 --Custom
 require('clip') --WSL clipboard integration
@@ -76,6 +78,10 @@ vim.api.nvim_create_autocmd({'BufLeave','BufWinLeave'}, {pattern = '*.*', comman
 --Return cursor shape upon exit
 local group = vim.api.nvim_create_augroup('ReturnCursor', {clear = true})
 vim.api.nvim_create_autocmd('VimLeave', {command = 'set guicursor=a:ver20-blinkon700-blinkoff300', group = group})
+
+--Disable spell checking in terminal.
+local Term = vim.api.nvim_create_augroup('Term', {clear = true})
+vim.api.nvim_create_autocmd('TermOpen', {command = 'setlocal nospell nonu nornu', group = Term})
 
 --Python
 vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3\''

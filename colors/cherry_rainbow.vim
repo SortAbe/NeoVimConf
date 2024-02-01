@@ -32,9 +32,7 @@ hi! link Conditional Statement
 hi! link Define PreProc
 hi! link Exception Statement
 hi! link Include PreProc
-hi! link Keyword Statement
 hi! link Label Statement
-hi! link Macro PreProc
 hi! link Operator Statement
 hi! link PreCondit PreProc
 hi! link Repeat Statement
@@ -49,20 +47,26 @@ hi! link Float Number
 "Custom:
 hi Normal guifg=NONE guibg=NONE
 
-hi Constant guifg=#4EA006
-hi Comment guifg=#777777
-hi Special guifg=#4465B4
 hi Statement guifg=#D35675  gui=bold
-hi Function guifg=#75507B gui=bold
 hi Identifier guifg=#ff80ff
 hi Variable guifg=#dddddd
 hi Type guifg=#8D81C2 gui=bold
-hi Typedef guifg=#4465B4  gui=bold
+
+hi Typedef guifg=#50cccc  gui=bold
 hi StorageClass guifg=#4465B4 gui=bold
 hi Tag guifg=#4465B4
+hi Special guifg=#0090ff
+
 hi Delimiter guifg=#ffa500
+hi Comment guifg=#777777
+
+hi Number guifg=#bb0000
 hi SpecialComment guifg=#00ff00
-hi Number guifg=#62E0FF
+hi Constant guifg=#4EA006
+
+hi Function guifg=#75507B 
+hi Macro guifg=#a9507B 
+hi Keyword guifg=#4465b4
 
 hi LineNr guifg=#7A82A3
 hi CursorLineNr guifg=#00cc00
@@ -88,6 +92,11 @@ hi PmenuSbar guifg=#ff0000 guibg=#00ffff
 hi PmenuSel guifg=#cccc00 guibg=NONE
 hi PmenuThumb guifg=#00aa00 guibg=NONE
 
+hi SpellBad guisp=#ff0000 gui=undercurl cterm=undercurl
+hi SpellCap guifg=#00ff00 guisp=#00ff00 gui=undercurl cterm=underline
+hi SpellLocal guifg=#00ffff guisp=#00ffff gui=undercurl cterm=underline
+hi SpellRare guifg=#ff80ff guisp=#ff80ff gui=undercurl cterm=underline
+
 hi QuickFixLine guifg=#ffffff guibg=#8b008b
 hi Cursor guifg=#000000 guibg=#00ff00
 hi ErrorMsg guifg=#ffffff guibg=#ff0000
@@ -110,14 +119,10 @@ hi WarningMsg guifg=#ff0000
 hi WildMenu guifg=#000000 guibg=#ffff00 gui=bold
 hi debugBreakpoint guifg=#00008b guibg=#ff0000
 hi debugPC guifg=#00008b guibg=#0000ff
-hi SpellBad guisp=#ff0000 gui=undercurl cterm=undercurl
-hi SpellCap guifg=#00ff00 guisp=#00ff00 gui=undercurl cterm=underline
-hi SpellLocal guifg=#00ffff guisp=#00ffff gui=undercurl cterm=underline
-hi SpellRare guifg=#ff80ff guisp=#ff80ff gui=undercurl cterm=underline
 hi Directory guifg=#00ffff
 hi Title guifg=#ff80ff
 hi Ignore guifg=#333333
-hi PreProc guifg=#ff0000 
+hi PreProc guifg=#900000 
 hi Todo guifg=#ffff00 guibg=#0000ff gui=reverse cterm=reverse
 hi Underlined guifg=#80a0ff gui=underline cterm=underline
 hi DiffAdd guifg=#ffffff guibg=#5f875f
