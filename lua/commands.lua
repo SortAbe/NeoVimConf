@@ -50,6 +50,21 @@ vim.api.nvim_create_user_command('Clear',
   end,
 { nargs = 0 })
 
+--Toggle diagnostic type
+local Toggled = true
+vim.api.nvim_create_user_command('Diag',
+	function(opts)
+		if Toggled then
+			vim.opt.eventignore = "CursorHoldI,CursorHold"
+			vim.diagnostic.config({ virtual_text = true })
+			Toggled = false
+		else
+			vim.opt.eventignore = ""
+			vim.diagnostic.config({ virtual_text = false })
+			Toggled = true
+		end
+  end,
+{ nargs = 0 })
 
 vim.api.nvim_create_user_command('Cap',
   function(opts)
@@ -84,5 +99,14 @@ vim.api.nvim_create_user_command('Update',
     vim.cmd("PackerSync")
     vim.cmd("MasonUpdate")
     vim.cmd("TSUpdate")
+  end,
+{ nargs = 0 })
+
+local conform = require("conform")
+vim.api.nvim_create_user_command('Format',
+  function(opts)
+	vim.lsp.buf.format()
+	conform.format()
+    vim.cmd("echo")
   end,
 { nargs = 0 })

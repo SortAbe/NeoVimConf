@@ -14,7 +14,6 @@ local icons = {
 	Keyword = '󰌆',
 }
 
-
 cmp.setup({
 	preselet = cmp.PreselectMode.Item,
 	snippet = { expand = function(args) require('luasnip').lsp_expand(args.body)
@@ -41,8 +40,8 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
-	sources = cmp.config.sources({ { name = 'nvim_lsp' }, { name = 'luasnip' }, -- For vsnip users.
-	}, { { name = 'buffer' }, { name = 'path' } })
+	sources = cmp.config.sources({ { name = 'nvim_lsp' }, { name = 'luasnip' }, { name = 'buffer'}
+	}, { { name = 'path' } })
 })
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
 

@@ -55,7 +55,7 @@ hi Type guifg=#8D81C2 gui=bold
 hi Typedef guifg=#50cccc  gui=bold
 hi StorageClass guifg=#4465B4 gui=bold
 hi Tag guifg=#4465B4
-hi Special guifg=#0090ff
+hi Special guifg=#00dddd
 
 hi Delimiter guifg=#ffa500
 hi Comment guifg=#777777
@@ -123,7 +123,7 @@ hi Directory guifg=#00ffff
 hi Title guifg=#ff80ff
 hi Ignore guifg=#333333
 hi PreProc guifg=#900000 
-hi Todo guifg=#ffff00 guibg=#0000ff gui=reverse cterm=reverse
+hi Todo guifg=#ffff00 guibg=#000000 
 hi Underlined guifg=#80a0ff gui=underline cterm=underline
 hi DiffAdd guifg=#ffffff guibg=#5f875f
 hi DiffChange guifg=#ffffff guibg=#5f87af

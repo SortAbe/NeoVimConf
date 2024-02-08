@@ -3,13 +3,14 @@ require('tele') --Telescope
 require('fileEx') --Navigation NeoTree
 require('statusline') --StatusLine lualine
 require('tabs') --Buffer line
-require('form') --Formatter NOT YET IMPLEMENTED
+require('form') --Buffer line
 require('lsp_config') --Mason and lsp_config
 require('colorizer').setup() --Colorizer
 require("chatgpt").setup({ api_key_cmd = "echo " .. os.getenv("GPT") })
 
 vim.cmd 'colorscheme cherry_rainbow' --Theme, needs to run before treeSitter below
 require('tree') --TreeSitter configuration
+require('motions') --TreeSitter configuration
 require('mapping') --TreeSitter mapping
 require('completion') --CMP
 
@@ -23,6 +24,7 @@ vim.o.relativenumber = true
 vim.o.signcolumn = 'number'
 vim.o.cursorline = true --error gutter
 vim.o.cursorlineopt = 'number' --merge with number line
+--
 --Undo file
 vim.o.undofile = true
 vim.opt.undodir = os.getenv( 'HOME' ) .. '/.nvim/undodir'
@@ -35,6 +37,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true --Match case only with upper case
 vim.o.incsearch = true
 vim.o.pumheight = 8
+vim.o.updatetime = 250
+--vim.o.scrolloff = 5 --Scroll at line from end
 
 vim.o.wrap = false
 vim.cmd 'set whichwrap+=<,>,[,],h,l'
@@ -61,7 +65,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.o.listchars = 'trail:-,nbsp:+,tab:▏ ,eol:↴' --White space hinting
+--vim.o.listchars = 'trail:-,nbsp:+,tab:▏ ,eol:↴' --White space hinting
+vim.o.listchars = 'trail:-,nbsp:+,tab:▏ ' --White space hinting
 vim.opt.list = true
 
 vim.opt.spell = true
@@ -85,4 +90,5 @@ vim.api.nvim_create_autocmd('TermOpen', {command = 'setlocal nospell nonu nornu'
 
 --Python
 vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3\''
-vim.api.nvim_create_autocmd('BufEnter', {pattern = {'*.py*', '*.rs*'}, command = 'set noet'}) --force noet
+--Line below is suppose to force tabs on Rust and Python, but perhaps this is not standard.
+--vim.api.nvim_create_autocmd('BufEnter', {pattern = {'*.py*', '*.rs*'}, command = 'set noet'}) --force noet

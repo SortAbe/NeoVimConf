@@ -24,7 +24,7 @@ require("mason").setup({
 			"powershell-editor-services",
 			"pyright",
 			"rust-analyzer",
-			"sglls",
+			"sgls",
 			"typescript-language-server",
 			"black",
 		},
@@ -41,19 +41,12 @@ require("mason-lspconfig").setup({
 		"powershell-editor-services",
 		"pyright",
 		"rust-analyzer",
-		"sglls",
+		"sgls",
 		"typescript-language-server",
 	}
 })
 
-require("lspconfig").arduino_language_server.setup{
-	cmd = {
-	"arduino-language-server",
-	"-cli", "/home/abe/.local/bin/arduino-cli",
-	"-cli-config", "/home/abe/.arduino15/arduino-cli.yaml",
-	"-fqbn", "arduino:avr:uno"
-	}
-}
+require("lspconfig").arduino_language_server.setup{}
 
 function oa_function(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
@@ -67,8 +60,25 @@ require("lspconfig").html.setup{}
 require("lspconfig").powershell_es.setup{}
 require("lspconfig").pyright.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"python"}}
 require("lspconfig").rust_analyzer.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"rust"}, diagnostic = true}
-require("lspconfig").sqlls.setup{}
+--require("lspconfig").sqls.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"sql"}, diagnostic = true,
+--cmd = {"~/.go/bin/sqls", "-config", "~/.config/nvim/dependencies/config.yaml"};}
 require("lspconfig").tsserver.setup{on_attach = oa_function}
+
+require("lspconfig").sqls.setup{ on_attach = oa_function,
+	capabilities = capabilities,
+	filetype = {'sqls'},
+	diagnostic = true,
+	settings = { sqls = { connections = { { 
+          --dataSourceName = 'host=209.133.192.178 port=7707 user=lsp password=$GK8hlg6*_9 dbname=mysql sslmode=disable',
+		  alias = 'lsp',
+		  driver = 'mysql',
+		  proto = 'tcp',
+		  user = 'lsp',
+		  passwd = '$GK8hlg6*_9',
+		  host = '209.133.192.178',
+		  port = '7707',
+		  dbName = 'University',
+	}, }, }, }, }
 
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError'})
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn'})
@@ -78,6 +88,12 @@ vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSig
 vim.diagnostic.config({
   virtual_text = false
 })
+
 -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+local Hover = vim.api.nvim_create_augroup('Hover', {clear = true})
+vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI"}, {
+  pattern = "*.*",
+  callback = function()
+	  vim.diagnostic.open_float(nil, {focus=false})
+  end, group="Hover"
+})

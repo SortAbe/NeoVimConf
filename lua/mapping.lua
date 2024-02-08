@@ -22,6 +22,8 @@ vim.api.nvim_set_hl(0, "@constructor.javascript", { link = "Type" })
 vim.api.nvim_set_hl(0, "@property.javascript", { link = "StorageClass" })
 vim.api.nvim_set_hl(0, "@variable.member.javascript", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@variable.javascript", { link = "Variable" })
+vim.api.nvim_set_hl(0, "@keyword.javascript", { link = "Special" })
+vim.api.nvim_set_hl(0, "@variable.builtin.javascript", { link = "Keyword" })
 
 --Python
 vim.api.nvim_set_hl(0, "@string.python", { link = "@spell" })
@@ -35,3 +37,6 @@ vim.api.nvim_set_hl(0, "@keyword.import.python", { link = "PreProc" })
 --Rust
 vim.api.nvim_set_hl(0, "@function.macro.rust", { link = "Macro" })
 vim.api.nvim_set_hl(0, "@keyword.rust", { link = "Keyword" })
+
+--Text
+vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
