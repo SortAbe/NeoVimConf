@@ -77,6 +77,7 @@ hi DiagnosticInfo guifg=#0000ff cterm=reverse
 hi DiagnosticInfo guifg=#00ff00 cterm=reverse
 hi NonText guifg=#444444
 hi MsgArea guifg=#add8e6
+hi NormalFloat guibg=#202020
 
 "Built in
 hi ColorColumn guifg=NONE guibg=#8b0000
@@ -129,3 +130,7 @@ hi DiffAdd guifg=#ffffff guibg=#5f875f
 hi DiffChange guifg=#ffffff guibg=#5f87af
 hi DiffText guifg=#000000 guibg=#c6c6c6
 hi DiffDelete guifg=#ffffff guibg=#af5faf
+
+
+
+hi NeoTreeModified guifg=#ff0000 guibg=NONE

@@ -10,8 +10,8 @@ require("mason").setup({
 		icons = {
 			package_installed = "✓",
 			package_pending = "➜",
-			package_uninstalled = "✗"
-		}
+			package_uninstalled = "✗",
+		},
 	},
 	opts = {
 		ensured_installed = {
@@ -28,7 +28,7 @@ require("mason").setup({
 			"typescript-language-server",
 			"black",
 		},
-	}
+	},
 })
 require("mason-lspconfig").setup({
 	ensured_installed = {
@@ -43,57 +43,69 @@ require("mason-lspconfig").setup({
 		"rust-analyzer",
 		"sgls",
 		"typescript-language-server",
-	}
+	},
 })
 
-require("lspconfig").arduino_language_server.setup{}
+require("lspconfig").arduino_language_server.setup({})
 
 function oa_function(client, bufnr)
-    client.server_capabilities.semanticTokensProvider = nil
+	client.server_capabilities.semanticTokensProvider = nil
 end
 
-require("lspconfig").bashls.setup{}
-require("lspconfig").clangd.setup{}
-require("lspconfig").cssls.setup{}
-require("lspconfig").jdtls.setup{}
-require("lspconfig").html.setup{}
-require("lspconfig").powershell_es.setup{}
-require("lspconfig").pyright.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"python"}}
-require("lspconfig").rust_analyzer.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"rust"}, diagnostic = true}
---require("lspconfig").sqls.setup{ on_attach = oa_function, capabilities = capabilities, filetype = {"sql"}, diagnostic = true,
---cmd = {"~/.go/bin/sqls", "-config", "~/.config/nvim/dependencies/config.yaml"};}
-require("lspconfig").tsserver.setup{on_attach = oa_function}
-
-require("lspconfig").sqls.setup{ on_attach = oa_function,
+require("lspconfig").bashls.setup({})
+require("lspconfig").clangd.setup({})
+require("lspconfig").cssls.setup({})
+require("lspconfig").jdtls.setup({})
+require("lspconfig").html.setup({})
+require("lspconfig").powershell_es.setup({})
+require("lspconfig").pyright.setup({ on_attach = oa_function, capabilities = capabilities, filetype = { "python" } })
+require("lspconfig").rust_analyzer.setup({
+	on_attach = oa_function,
 	capabilities = capabilities,
-	filetype = {'sqls'},
+	filetype = { "rust" },
 	diagnostic = true,
-	settings = { sqls = { connections = { { 
-          --dataSourceName = 'host=209.133.192.178 port=7707 user=lsp password=$GK8hlg6*_9 dbname=mysql sslmode=disable',
-		  alias = 'lsp',
-		  driver = 'mysql',
-		  proto = 'tcp',
-		  user = 'lsp',
-		  passwd = '$GK8hlg6*_9',
-		  host = '209.133.192.178',
-		  port = '7707',
-		  dbName = 'University',
-	}, }, }, }, }
+})
+require("lspconfig").tsserver.setup({ on_attach = oa_function })
 
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError'})
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn'})
-vim.fn.sign_define('DiagnosticSignInfo', { text = '󰙎', texthl = 'DiagnosticSignInfo'})
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint'})
+require("lspconfig").sqls.setup({
+	on_attach = oa_function,
+	capabilities = capabilities,
+	filetype = { "sqls" },
+	diagnostic = true,
+	settings = {
+		sqls = {
+			connections = {
+				{
+					--dataSourceName = 'host=209.133.192.178 port=7707 user=lsp password=$GK8hlg6*_9 dbname=mysql sslmode=disable',
+					alias = "lsp",
+					driver = "mysql",
+					proto = "tcp",
+					user = "lsp",
+					passwd = "$GK8hlg6*_9",
+					host = "209.133.192.178",
+					port = "7707",
+					dbName = "University",
+				},
+			},
+		},
+	},
+})
+
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "󰙎", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 vim.diagnostic.config({
-  virtual_text = false
+	virtual_text = false,
 })
 
 -- Show line diagnostics automatically in hover window
-local Hover = vim.api.nvim_create_augroup('Hover', {clear = true})
-vim.api.nvim_create_autocmd( {"CursorHold", "CursorHoldI"}, {
-  pattern = "*.*",
-  callback = function()
-	  vim.diagnostic.open_float(nil, {focus=false})
-  end, group="Hover"
+local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	pattern = "*.*",
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+	group = "Hover",
 })

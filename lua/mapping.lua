@@ -1,5 +1,5 @@
 --Java
-vim.api.nvim_set_hl(0, "@type.builtin.java", { link = "StorageClass" })
+vim.api.nvim_set_hl(0, "@type.builtin.java", { link = "Type" })
 vim.api.nvim_set_hl(0, "@punctuation.bracket.java", { link = "Delimiter" })
 vim.api.nvim_set_hl(0, "@variable.java", { link = "Variable" })
 vim.api.nvim_set_hl(0, "@keyword.import.java", { link = "PreProc" })
@@ -39,4 +39,4 @@ vim.api.nvim_set_hl(0, "@function.macro.rust", { link = "Macro" })
 vim.api.nvim_set_hl(0, "@keyword.rust", { link = "Keyword" })
 
 --Text
-vim.api.nvim_set_hl(0, '@text.note', { link = 'Todo' })
+vim.api.nvim_set_hl(0, "@text.note", { link = "Todo" })

@@ -1,14 +1,14 @@
-require("bufferline").setup{
-    options = {
+require("bufferline").setup({
+	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
 		themable = false, -- allows highlight groups to be overriden i.e. sets highlights as default
 		numbers = "none",
-		indicator = { style = 'none'},
-		buffer_close_icon = 'x',
-		modified_icon = '●',
-		close_icon = 'X',
-		left_trunc_marker = '|',
-		right_trunc_marker = '\\',
+		indicator = { style = "none" },
+		buffer_close_icon = "x",
+		modified_icon = "●",
+		close_icon = "X",
+		left_trunc_marker = "|",
+		right_trunc_marker = "\\",
 		max_name_length = 12,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		truncate_names = true, -- whether or not tab names should be truncated
@@ -25,6 +25,6 @@ require("bufferline").setup{
 		move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
 		separator_style = "thin",
 		--always_show_bufferline = false,
-		offsets = { { text_align = "left", separator = true } }
-    }
-}
+		offsets = { { text_align = "left", separator = true } },
+	},
+})
