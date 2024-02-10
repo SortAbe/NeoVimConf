@@ -1,22 +1,13 @@
-require("plugins") --Packer
-require("tele") --Telescope
-require("fileEx") --Navigation NeoTree
-require("statusline") --StatusLine lualine
-require("tabs") --Buffer line
-require("form") --Buffer line
-require("lsp_config") --Mason and lsp_config
-require("colorizer").setup() --Colorizer
-require("chatgpt").setup({ api_key_cmd = "echo " .. os.getenv("GPT") })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.opt.rtp:prepend(lazypath)
+local opts = require("lazy_opts")
+require("lazy").setup("plugins", opts)
 
 vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
-require("tree") --TreeSitter configuration
-require("motions") --TreeSitter configuration
 require("mapping") --TreeSitter mapping
-require("completion") --CMP
 
 --Custom
 require("clip") --WSL clipboard integration
-require("commands") --Commands
 require("keymap") --Keymaps
 
 vim.o.number = true
@@ -83,7 +74,14 @@ vim.api.nvim_create_autocmd(
 	{ "BufEnter", "BufWinEnter" },
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.sh*" }, command = "set et", group = "Enter" }) --force noet
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*" , command = "set et", group = "Enter" }) --force noet
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*" , command = "set et | LspStart", group = "Enter" }) --force noet
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+callback = function(ev)
+	require("commands") --Commands
+end
+})
 
 local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
@@ -99,5 +97,3 @@ vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell nonu nornu
 
 --Python
 vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
---Line below is suppose to force tabs on Rust and Python, but perhaps this is not standard.
---vim.api.nvim_create_autocmd('BufEnter', {pattern = {'*.py*', '*.rs*'}, command = 'set noet'}) --force noet

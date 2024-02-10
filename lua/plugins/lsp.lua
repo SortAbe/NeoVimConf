@@ -1,57 +1,8 @@
-require("mason").setup({
-	registries = {
-		"github:mason-org/mason-registry",
-	},
-	providers = {
-		"mason.providers.registry-api",
-		"mason.providers.client",
-	},
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-	opts = {
-		ensured_installed = {
-			"arduino-language-server",
-			"bash-language-server",
-			"clangd",
-			"css-lsp",
-			"jdtls",
-			"html-lsp",
-			"powershell-editor-services",
-			"pyright",
-			"rust-analyzer",
-			"sgls",
-			"typescript-language-server",
-			"black",
-		},
-	},
-})
-require("mason-lspconfig").setup({
-	ensured_installed = {
-		"arduino-language-server",
-		"bash-language-server",
-		"clangd",
-		"css-lsp",
-		"jdtls",
-		"html-lsp",
-		"powershell-editor-services",
-		"pyright",
-		"rust-analyzer",
-		"sgls",
-		"typescript-language-server",
-	},
-})
-
-require("lspconfig").arduino_language_server.setup({})
-
+return { "neovim/nvim-lspconfig", event = "BufEnter", config = function()
 function oa_function(client, bufnr)
 	client.server_capabilities.semanticTokensProvider = nil
 end
-
+require("lspconfig").arduino_language_server.setup({})
 require("lspconfig").bashls.setup({})
 require("lspconfig").clangd.setup({})
 require("lspconfig").cssls.setup({})
@@ -65,7 +16,8 @@ require("lspconfig").rust_analyzer.setup({
 	filetype = { "rust" },
 	diagnostic = true,
 })
-require("lspconfig").tsserver.setup({ on_attach = oa_function })
+--require("lspconfig").tsserver.setup({ on_attach = oa_function })
+require'lspconfig'.denols.setup({ on_attach = oa_function })
 
 require("lspconfig").sqls.setup({
 	on_attach = oa_function,
@@ -109,3 +61,4 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	end,
 	group = "Hover",
 })
+end}

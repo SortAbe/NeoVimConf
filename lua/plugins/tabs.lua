@@ -1,3 +1,4 @@
+return { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons", event = "UIEnter", config = function() 
 require("bufferline").setup({
 	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -28,3 +29,4 @@ require("bufferline").setup({
 		offsets = { { text_align = "left", separator = true } },
 	},
 })
+end}

@@ -1,3 +1,15 @@
+return { 'hrsh7th/nvim-cmp', event = "UIEnter",
+depedencies = {
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"L3MON4D3/LuaSnip",
+	"rafamadriz/friendly-snippets",
+	"hrsh7th/cmp-nvim-lsp",
+	"saadparwaiz1/cmp_luasnip",
+	"windwp/nvim-autopairs", 
+},
+config = function() 
 require("luasnip.loaders.from_vscode").lazy_load()
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
@@ -91,3 +103,4 @@ vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { link = "SpecialKey" })
 vim.api.nvim_set_hl(0, "CmpItemKindFile", { link = "Property" })
 vim.api.nvim_set_hl(0, "CmpItemKindFolder", { link = "Directory" })
+end}

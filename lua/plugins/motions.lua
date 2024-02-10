@@ -1,3 +1,4 @@
+return { "nvim-treesitter/nvim-treesitter-textobjects", event = "CursorMoved", dependencies = { "nvim-treesitter/nvim-treesitter"}, config = function() 
 require("nvim-treesitter.configs").setup({
 	textobjects = {
 		select = {
@@ -42,3 +43,4 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+end}
