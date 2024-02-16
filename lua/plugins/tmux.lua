@@ -1,1 +1,1 @@
-return{"christoomey/vim-tmux-navigator", event = "UIEnter"}
+return{"christoomey/vim-tmux-navigator", lazy = false}

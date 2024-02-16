@@ -1,4 +1,4 @@
-return{ "stevearc/conform.nvim", config = function() 
+return{ "stevearc/conform.nvim", event = "CmdlineEnter", config = function() 
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },

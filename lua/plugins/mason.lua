@@ -1,4 +1,4 @@
-return{"williamboman/mason.nvim", event = "InsertEnter", config = function()
+return{"williamboman/mason.nvim", event = "CmdlineEnter", config = function()
 require("mason") .setup({
 	registries = {
 		"github:mason-org/mason-registry",

@@ -1,11 +1,21 @@
---Custom
+--Navigation
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<A-l>", ":noh | echo<CR>", { silent = true })
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", { silent = true })
 vim.keymap.set("n", "<A-d>", ":bd<CR>", { silent = true })
-vim.keymap.set("v", "<A-c>", '"*y', { silent = true })
-vim.keymap.set("n", "<Space>t", ":Neotree<CR>", { silent = true })
 vim.keymap.set("n", "<TAB>", "<C-W>w", { silent = true })
+
+vim.keymap.set("v", "<A-c>", '"*y', { silent = true }) --Alt c to copy to system clipboard
+
+vim.keymap.set("n", "<Space>x", ":Oil --float<CR>", { silent = true }) --File explore
+
+vim.keymap.set("n", "<Space>e", ":lua vim.lsp.buf.rename()<CR>", { silent = true }) --File explore
+
+vim.keymap.set("n", "<A-n>", ":lua vim.diagnostic.goto_next()<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<A-N>", ":lua vim.diagnostic.goto_prev()<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<Space>u", ":e!<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<Space>U", ":normal 1000u<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<Space>R", ":normal 1000<C-R><CR>", { silent = true }) --File explore
 
 --Telescope
 local builtin = require("telescope.builtin")
@@ -18,10 +28,10 @@ vim.keymap.set("n", "<Space>fb", builtin.buffers, {})
 vim.keymap.set("n", "<Space>hh", builtin.help_tags, {})
 
 --Tmux
-vim.keymap.set("n", "<C-l>", "TmuxNavigationRight<CR>", { silent = true })
-vim.keymap.set("n", "<C-h>", "TmuxNavigationLeft<CR>", { silent = true })
-vim.keymap.set("n", "<C-j>", "TmuxNavigationDown<CR>", { silent = true })
-vim.keymap.set("n", "<C-k>", "TmuxNavigationUp<CR>", { silent = true })
+vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { silent = true })
+vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true })
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { silent = true })
 
 --Folding
 vim.keymap.set("n", "<A-f>", ":normal zfaf<CR>", { silent = true })

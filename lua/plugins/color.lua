@@ -1,1 +1,4 @@
-return{ "NvChad/nvim-colorizer.lua", event = "ColorScheme"}
+return{ "norcalli/nvim-colorizer.lua", event = "CmdlineEnter", config = function() 
+    require'colorizer'.setup()
+    vim.cmd(":ColorizerAttachToBuffer")
+end}

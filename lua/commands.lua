@@ -80,12 +80,6 @@ vim.api.nvim_create_user_command("Cap", function(opts)
 	vim.cmd("noh")
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("Update", function(opts)
-	vim.cmd("PackerSync")
-	vim.cmd("MasonUpdate")
-	vim.cmd("TSUpdate")
-end, { nargs = 0 })
-
 local conform = require("conform")
 vim.api.nvim_create_user_command("Format", function(opts)
 	if not conform.format() then

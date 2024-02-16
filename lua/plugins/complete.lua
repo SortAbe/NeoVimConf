@@ -1,5 +1,5 @@
-return { 'hrsh7th/nvim-cmp', event = "UIEnter",
-depedencies = {
+return { 'hrsh7th/nvim-cmp',
+dependencies = {
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
@@ -27,7 +27,8 @@ local icons = {
 }
 
 cmp.setup({
-	preselet = cmp.PreselectMode.Item,
+	preselect = cmp.PreselectMode.None,
+	completion = { completeopt = "noselect" },
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -49,6 +50,9 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+    experimental = {
+        ghost_text = true,
+    },
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
@@ -59,8 +63,8 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources(
-		{ { name = "nvim_lsp" }, { name = "luasnip" }, { name = "buffer" } },
-		{ { name = "path" } }
+		{ { name = "luasnip"},{ name = "nvim_lsp"},  { name = "buffer"} },
+		{  { name = "path" } }
 	),
 })
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -83,9 +87,9 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
 		{ name = "cmdline" },
+	}, {
+		{ name = "path" },
 	}),
 })
 
@@ -103,4 +107,21 @@ vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { link = "Keyword" })
 vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { link = "SpecialKey" })
 vim.api.nvim_set_hl(0, "CmpItemKindFile", { link = "Property" })
 vim.api.nvim_set_hl(0, "CmpItemKindFolder", { link = "Directory" })
+
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchDefault", { link = "Constant" })
+vim.api.nvim_set_hl(0, "CmpItemKindTextDefault", { link = "Constant" })
+vim.api.nvim_set_hl(0, "CmpItemKindMethodDefault", { link = "Function" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunctionDefault", { link = "Function" })
+vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { link = "Keyword" })
+vim.api.nvim_set_hl(0, "CmpItemKindFieldDefault", { link = "Property" })
+vim.api.nvim_set_hl(0, "CmpItemKindVariableDefault", { link = "Variable" })
+vim.api.nvim_set_hl(0, "CmpItemKindClassDefault", { link = "StorageClass" })
+vim.api.nvim_set_hl(0, "CmpItemKindInterfaceDefault", { link = "Property" })
+vim.api.nvim_set_hl(0, "CmpItemKindValueDefault", { link = "Number" })
+vim.api.nvim_set_hl(0, "CmpItemKindKeywordDefault", { link = "Keyword" })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippetDefault", { link = "SpecialKey" })
+vim.api.nvim_set_hl(0, "CmpItemKindFileDefault", { link = "Property" })
+vim.api.nvim_set_hl(0, "CmpItemKindFolderDefault", { link = "Directory" })
+
+
 end}

@@ -46,27 +46,28 @@ hi! link Float Number
 
 "Custom:
 hi Normal guifg=NONE guibg=NONE
-
+"
+"Highlight for text colos
 hi Statement guifg=#D35675  gui=bold
 hi Identifier guifg=#ff80ff
 hi Variable guifg=#dddddd
 hi Type guifg=#8D81C2 gui=bold
+hi Number guifg=#bb0000
 
 hi Typedef guifg=#50cccc  gui=bold
 hi StorageClass guifg=#4465B4 gui=bold
 hi Tag guifg=#4465B4
 hi Special guifg=#00dddd
-
 hi Delimiter guifg=#ffa500
-hi Comment guifg=#777777
 
-hi Number guifg=#bb0000
 hi SpecialComment guifg=#00ff00
 hi Constant guifg=#4EA006
 
 hi Function guifg=#75507B 
 hi Macro guifg=#a9507B 
 hi Keyword guifg=#4465b4
+hi Comment guifg=#777777 guibg=NONE
+
 
 hi LineNr guifg=#7A82A3
 hi CursorLineNr guifg=#00cc00
@@ -77,7 +78,10 @@ hi DiagnosticInfo guifg=#0000ff cterm=reverse
 hi DiagnosticInfo guifg=#00ff00 cterm=reverse
 hi NonText guifg=#444444
 hi MsgArea guifg=#add8e6
-hi NormalFloat guibg=#202020
+hi NormalFloat guibg=NONE
+hi NormalNC guibg=NONE
+hi FLoatBorder guifg=#00aa00 guibg=NONE
+hi LSPInfoBorder guifg=#00aa00 guibg=NONE
 
 "Built in
 hi ColorColumn guifg=NONE guibg=#8b0000
@@ -87,6 +91,8 @@ hi StatusLine guifg=NONE gui=bold
 hi StatusLineNC guifg=NONE
 hi TabLineSel guifg=#333333 guibg=#ffffff gui=bold
 hi TabLine guifg=#333333 guibg=#d3d3d3
+
+hi CmpItemKind guifg=#cccccc guibg=NONE
 
 hi Pmenu guifg=#dddddd guibg=NONE
 hi PmenuSbar guifg=#ff0000 guibg=#00ffff
@@ -100,7 +106,7 @@ hi SpellRare guifg=#ff80ff guisp=#ff80ff gui=undercurl cterm=underline
 
 hi QuickFixLine guifg=#ffffff guibg=#8b008b
 hi Cursor guifg=#000000 guibg=#00ff00
-hi ErrorMsg guifg=#ffffff guibg=#ff0000
+hi ErrorMsg guifg=#ffffff guibg=NONE
 hi Conceal guifg=NONE
 hi FoldColumn guifg=#add8e6
 hi Folded guifg=#aa0000 guibg=#191919 gui=bold
@@ -109,14 +115,14 @@ hi MatchParen guifg=NONE guibg=#008b8b
 hi ModeMsg guifg=NONE gui=bold
 hi MoreMsg guifg=#2e8b57
 hi Question guifg=#00ff00
-hi Search guifg=#000000 guibg=#00cc00
+hi Search guifg=#f8f8f8 guibg=#003500
 hi SignColumn guifg=#008b8b
 hi SpecialKey guifg=#00ffff
 hi ToolbarButton guifg=NONE guibg=#999999 gui=bold
 hi ToolbarLine guifg=NONE
 hi Visual guifg=#ffff00 guibg=#777777
 hi VisualNOS guifg=NONE gui=bold,underline,underline
-hi WarningMsg guifg=#ff0000
+hi WarningMsg guifg=#ff0000 guibg=NONE
 hi WildMenu guifg=#000000 guibg=#ffff00 gui=bold
 hi debugBreakpoint guifg=#00008b guibg=#ff0000
 hi debugPC guifg=#00008b guibg=#0000ff
@@ -130,7 +136,3 @@ hi DiffAdd guifg=#ffffff guibg=#5f875f
 hi DiffChange guifg=#ffffff guibg=#5f87af
 hi DiffText guifg=#000000 guibg=#c6c6c6
 hi DiffDelete guifg=#ffffff guibg=#af5faf
-
-
-
-hi NeoTreeModified guifg=#ff0000 guibg=NONE

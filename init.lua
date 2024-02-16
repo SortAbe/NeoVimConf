@@ -1,14 +1,21 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
 local opts = require("lazy_opts")
+vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 require("lazy").setup("plugins", opts)
 
-vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 require("mapping") --TreeSitter mapping
 
 --Custom
 require("clip") --WSL clipboard integration
 require("keymap") --Keymaps
+require("lsp_event") --WSL clipboard integration
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+callback = function(ev)
+	require("commands") --Commands
+end
+})
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -75,13 +82,7 @@ vim.api.nvim_create_autocmd(
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*" , command = "set et", group = "Enter" }) --force noet
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*" , command = "set et | LspStart", group = "Enter" }) --force noet
-
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-callback = function(ev)
-	require("commands") --Commands
-end
-})
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*" , command = "LspStart", group = "Enter" }) --force noet
 
 local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
@@ -94,6 +95,22 @@ vim.api.nvim_create_autocmd("VimLeave", { command = "set guicursor=a:ver20-blink
 local Term = vim.api.nvim_create_augroup("Term", { clear = true })
 vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell nonu nornu", group = Term })
 
-
 --Python
 vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
+
+local _border = "single"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border
+  }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = _border
+  }
+)
+
+vim.diagnostic.config {
+    float = { border = "rounded" }, 
+}
