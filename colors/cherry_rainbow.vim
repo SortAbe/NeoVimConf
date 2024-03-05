@@ -47,7 +47,7 @@ hi! link Float Number
 "Custom:
 hi Normal guifg=NONE guibg=NONE
 "
-"Highlight for text colos
+"Code highlights
 hi Statement guifg=#D35675  gui=bold
 hi Identifier guifg=#ff80ff
 hi Variable guifg=#dddddd
@@ -59,15 +59,16 @@ hi StorageClass guifg=#4465B4 gui=bold
 hi Tag guifg=#4465B4
 hi Special guifg=#00dddd
 hi Delimiter guifg=#ffa500
-
-hi SpecialComment guifg=#00ff00
 hi Constant guifg=#4EA006
 
-hi Function guifg=#75507B 
-hi Macro guifg=#a9507B 
+hi SpecialComment guifg=#00ff00
+
+hi Function guifg=#75507B
+hi Macro guifg=#a9507B
+
 hi Keyword guifg=#4465b4
 hi Comment guifg=#777777 guibg=NONE
-
+"End of code highlights
 
 hi LineNr guifg=#7A82A3
 hi CursorLineNr guifg=#00cc00

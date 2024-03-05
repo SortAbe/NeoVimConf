@@ -99,41 +99,97 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 })
 
 local not_found = true
+local rust_run = false
+local java_run = false
+local python_run = false
+local js_run = false
+local bash_run = false
+local html_run = false
+local css_run = false
+local sql_run = false
+local c_run = false
+local arduino_run = false
+local ps_run = false
+
 vim.api.nvim_create_autocmd({ "BufRead" }, {
 	pattern = { "*.py*" },
 	callback = function()
+		if python_run then
+			return
+		end
 		pyright()
 		not_found = false
+		python_run = true
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+	pattern = { "*.sh*" },
+	callback = function()
+		if bash_run then
+			return
+		end
+		efm()
+		not_found = false
+		bash_run = true
+	end,
+})
+
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.js", "*.cjs", "*.mjs", "*.ts", "*.map" },
 	callback = function()
+		if js_run then
+			return
+		end
 		lspconfig.denols.setup({ on_attach = oa_function })
 		not_found = false
+		js_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.html", "*.htm" },
 	callback = function()
+		if html_run then
+			return
+		end
 		lspconfig.html.setup({ on_attach = oa_function })
 		not_found = false
+		html_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.css", "*.less", "*.scss" },
 	callback = function()
+		if css_run then
+			return
+		end
 		lspconfig.cssls.setup({ on_attach = oa_function })
 		not_found = false
+		css_run = true
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
+	pattern = { "*.sql" },
+	callback = function()
+		if sql_run then
+			return
+		end
+		lspconfig.sqls.setup({ on_attach = oa_function })
+		not_found = false
+		sql_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.rs*" },
 	callback = function()
+		if rust_run then
+			return
+		end
 		lspconfig.rust_analyzer.setup({
 			on_attach = oa_function,
 			handlers = handlers,
@@ -142,52 +198,74 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 			diagnostic = true,
 		})
 		not_found = false
+		rust_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.java", "*.dpj", "*.jar", "*.jsp", "*.xrb" },
 	callback = function()
+		if java_run then
+			return
+		end
 		lspconfig.jdtls.setup({ on_attach = oa_function })
 		not_found = false
-		for k, v in pairs(vim.api.nvim_get_hl(11, {})) do
-			print("here")
-			print(k, v)
-		end
+		java_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.ino", "*.pde", "*.cpp", "*.c", "*.S", "*.tpp", "*.h" },
 	callback = function()
+		if arduino_run then
+			return
+		end
 		lspconfig.arduino_language_server.setup({ on_attach = oa_function })
 		not_found = false
+		arduino_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.c", "*.cc", "*.cpp", "*.o", "*.h" },
 	callback = function()
+		if c_run then
+			return
+		end
 		lspconfig.clangd.setup({ on_attach = oa_function })
 		not_found = false
+		c_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.ps1" },
 	callback = function()
+		if ps_run then
+			return
+		end
 		lspconfig.powershell_es.setup({ on_attach = oa_function })
 		not_found = false
+		ps_run = true
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	callback = function()
 		if vim.api.nvim_buf_get_option(0, "filetype") == "sh" then
+			if bash_run then
+				return
+			end
 			efm()
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "python" then
+			if python_run then
+				return
+			end
 			pyright()
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "html" then
+			if html_run then
+				return
+			end
 			lspconfig.html.setup({ on_attach = oa_function })
 		end
 	end,

@@ -4,11 +4,11 @@ local opts = require("lazy_opts")
 vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 require("lazy").setup("plugins", opts)
 
-require("mapping") --TreeSitter mapping
 
 --Custom
 require("clip") --WSL clipboard integration
 require("keymap") --Keymaps
+require("mapping") --TreeSitter mapping
 require("lsp_event") --WSL clipboard integration
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
