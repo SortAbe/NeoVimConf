@@ -53,6 +53,8 @@ hi Identifier guifg=#ff80ff
 hi Variable guifg=#dddddd
 hi Type guifg=#8D81C2 gui=bold
 hi Number guifg=#bb0000
+hi Boolean guifg=#bb2f2f
+hi Parameter guifg=#08B6EF
 
 hi Typedef guifg=#50cccc  gui=bold
 hi StorageClass guifg=#4465B4 gui=bold
@@ -70,6 +72,7 @@ hi Keyword guifg=#4465b4
 hi Comment guifg=#777777 guibg=NONE
 "End of code highlights
 
+"Meta
 hi LineNr guifg=#7A82A3
 hi CursorLineNr guifg=#00cc00
 hi Error guifg=#ff0000 guibg=#ffffff gui=reverse cterm=reverse
@@ -81,8 +84,8 @@ hi NonText guifg=#444444
 hi MsgArea guifg=#add8e6
 hi NormalFloat guibg=NONE
 hi NormalNC guibg=NONE
-hi FLoatBorder guifg=#00aa00 guibg=NONE
-hi LSPInfoBorder guifg=#00aa00 guibg=NONE
+hi FLoatBorder guifg=#333333 guibg=NONE
+hi LSPInfoBorder guifg=#333333 guibg=NONE
 
 "Built in
 hi ColorColumn guifg=NONE guibg=#8b0000

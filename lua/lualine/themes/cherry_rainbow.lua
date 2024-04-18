@@ -15,8 +15,8 @@ local colors = {
   color11  = "#3e4b59",
   color12  = "#e6e1cf",
   color13  = "#14191f",
-  none   = "NONE",
   color5   = "#ffee99",
+  none   = "NONE",
 }
 
 local cherry_rainbow = {

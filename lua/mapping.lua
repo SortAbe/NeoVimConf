@@ -33,6 +33,8 @@ vim.api.nvim_set_hl(0, "@string.regexp.python", { link = "SpecialComment" })
 vim.api.nvim_set_hl(0, "@variable.python", { link = "Variable" })
 vim.api.nvim_set_hl(0, "@keyword.directive.python", { link = "PreProc" })
 vim.api.nvim_set_hl(0, "@keyword.import.python", { link = "PreProc" })
+vim.api.nvim_set_hl(0, "@variable.parameter.python", { link = "Parameter" })
+vim.api.nvim_set_hl(0, "@boolean.python", { link = "Boolean" })
 
 --Rust
 vim.api.nvim_set_hl(0, "@function.macro.rust", { link = "Macro" })

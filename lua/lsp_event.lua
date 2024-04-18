@@ -86,6 +86,9 @@ function pyright()
 					diagnosticMode = "openFilesOnly",
 					useLibraryCodeForTypes = true,
 					typeCheckingMode = "on",
+					diagnosticSeverityOverrides = {
+						reportAttributeAccessIssue = "none",
+					},
 				},
 			},
 		},

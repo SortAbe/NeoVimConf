@@ -80,10 +80,24 @@ vim.api.nvim_create_user_command("Cap", function(opts)
 	vim.cmd("noh")
 end, { nargs = 0 })
 
+--Formatter
 local conform = require("conform")
 vim.api.nvim_create_user_command("Format", function(opts)
 	if not conform.format() then
 		vim.lsp.buf.format()
 	end
 	print("Formatted!")
+end, { nargs = 0 })
+
+
+--Background
+local transparent = true
+vim.api.nvim_create_user_command("Trans", function(opts)
+	if transparent then
+		vim.api.nvim_set_hl(0, "Normal", { fg=NONE,  bg="#191919" })
+		transparent = false
+	else
+		vim.api.nvim_set_hl(0, "Normal", { fg=NONE,  bg=NONE })
+		transparent = true
+	end
 end, { nargs = 0 })

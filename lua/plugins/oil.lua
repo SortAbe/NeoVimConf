@@ -92,8 +92,8 @@ return { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" }, 
   float = {
     -- Padding around the floating window
     padding = 2,
-    max_width = 55,
-    max_height = 22,
+    max_width = 70,
+    max_height = 20,
     border = "rounded",
     win_options = {
       winblend = 0,
