@@ -7,3 +7,13 @@ if in_wsl then
 		cache_enabled = true,
 	}
 end
+
+in_wayland = os.getenv("WAYLAND_DISPLAY") ~= nil
+if in_wayland then
+	vim.g.clipboard = {
+		name = "Wayland Clipboard",
+		copy = { ["+"] = { "wl-copy" }, ["*"] = { "wl-copy" } },
+		paste = { ["+"] = { "wl-paste" }, ["*"] = { "wl-paste" } },
+		cache_enabled = true,
+	}
+end

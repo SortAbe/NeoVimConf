@@ -12,9 +12,9 @@ local handlers = {
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or border
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 vim.api.nvim_create_autocmd({ "BufNew" }, {
@@ -98,7 +98,7 @@ end
 vim.api.nvim_create_autocmd({ "BufRead" }, {
 	pattern = { "*.sh*" },
 	callback = efm,
-	lspconfig.bashls.setup({ on_attach = oa_function })
+	lspconfig.bashls.setup({ on_attach = oa_function }),
 })
 
 local not_found = true
@@ -137,7 +137,6 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 		bash_run = true
 	end,
 })
-
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.js", "*.cjs", "*.mjs", "*.ts", "*.map" },
@@ -181,7 +180,23 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		if sql_run then
 			return
 		end
-		lspconfig.sqls.setup({ on_attach = oa_function })
+		lspconfig.sqls.setup({
+			on_attach = oa_function,
+			settings = {
+				sqls = {
+					connections = {
+						{
+							driver = "mysql",
+							dataSourceName = "abe:xKHOxyThyC7u8f@tcp(127.0.0.1:3306)/University",
+						},
+						{
+							driver = "postgresql",
+							dataSourceName = "host=127.0.0.1 port=15432 user=postgres password=mysecretpassword1234 dbname=dvdrental sslmode=disable",
+						},
+					},
+				},
+			},
+		})
 		not_found = false
 		sql_run = true
 	end,

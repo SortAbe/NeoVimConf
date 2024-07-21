@@ -11,6 +11,7 @@ return {
 				javascript = { "prettierd" },
 				sh = { "beautysh" },
 				sql = { "sql_formatter" },
+				xml = { "xmlformat" },
 			},
 			lsp_fallback = true,
 		})
