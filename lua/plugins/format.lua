@@ -13,6 +13,7 @@ return {
 				sh = { "beautysh" },
 				sql = { "sql_formatter" },
 				php = { "pretty-php" },
+				xml = { "xmlformat" },
 			},
 			lsp_fallback = true,
 		})

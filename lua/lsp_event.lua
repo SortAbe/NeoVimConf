@@ -212,6 +212,20 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		end
 		lspconfig.sqls.setup({ on_attach = oa_function,
 			root_dir = require("lspconfig").util.root_pattern({ "index.html", "index.php", ".git/" , "." }),
+			settings = {
+				sqls = {
+					connections = {
+						{
+							driver = "mysql",
+							dataSourceName = "abe:xKHOxyThyC7u8f@tcp(127.0.0.1:3306)/University",
+						},
+						{
+							driver = "postgresql",
+							dataSourceName = "host=127.0.0.1 port=15432 user=postgres password=mysecretpassword1234 dbname=dvdrental sslmode=disable",
+						},
+					},
+				},
+			},
 		})
 		not_found = false
 		sql_run = true

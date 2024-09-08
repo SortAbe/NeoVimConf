@@ -52,9 +52,10 @@ hi Statement guifg=#D35675  gui=bold
 hi Identifier guifg=#ff80ff
 hi Variable guifg=#dddddd
 hi Type guifg=#8D81C2 gui=bold
-hi Number guifg=#bb0000
-hi Boolean guifg=#bb2f2f
-hi Parameter guifg=#08B6EF
+hi Number guifg=#FF0000
+hi Boolean guifg=#FF0010
+hi Parameter guifg=#1EBBFF
+hi PreProc guifg=#5FD75F
 
 hi Typedef guifg=#50cccc  gui=bold
 hi StorageClass guifg=#4465B4 gui=bold
@@ -133,10 +134,9 @@ hi debugPC guifg=#00008b guibg=#0000ff
 hi Directory guifg=#00ffff
 hi Title guifg=#ff80ff
 hi Ignore guifg=#333333
-hi PreProc guifg=#900000 
 hi Todo guifg=#ffff00 guibg=#000000 
 hi Underlined guifg=#80a0ff gui=underline cterm=underline
 hi DiffAdd guifg=#ffffff guibg=#5f875f
-hi DiffChange guifg=#ffffff guibg=#5f87af
+hi DiffChange guifg=#4040ff guibg=NONE
 hi DiffText guifg=#000000 guibg=#c6c6c6
 hi DiffDelete guifg=#ffffff guibg=#af5faf
