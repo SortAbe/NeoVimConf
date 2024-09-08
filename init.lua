@@ -4,6 +4,11 @@ local opts = require("lazy_opts")
 vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 require("lazy").setup("plugins", opts)
 
+--Overwritten
+vim.opt.expandtab = false
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 --Custom
 require("clip") --WSL clipboard integration
@@ -12,9 +17,9 @@ require("mapping") --TreeSitter mapping
 require("lsp_event") --WSL clipboard integration
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
-callback = function(ev)
-	require("commands") --Commands
-end
+	callback = function(ev)
+		require("commands") --Commands
+	end,
 })
 
 vim.o.number = true
@@ -60,11 +65,6 @@ vim.opt.shortmess:append("a")
 vim.opt.shortmess:append("W")
 vim.opt.shortmess:append("l")
 
-vim.opt.expandtab = false
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-
 --vim.o.listchars = 'trail:-,nbsp:+,tab:▏ ,eol:↴' --White space hinting
 vim.o.listchars = "trail:-,nbsp:+,tab:▏ " --White space hinting
 vim.opt.list = true
@@ -81,8 +81,8 @@ vim.api.nvim_create_autocmd(
 	{ "BufEnter", "BufWinEnter" },
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*" , command = "set et", group = "Enter" }) --force noet
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*" , command = "LspStart", group = "Enter" }) --force noet
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*", command = "set et", group = "Enter" }) --force noet
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*", command = "LspStart", group = "Enter" }) --force noet
 
 local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
@@ -100,17 +100,13 @@ vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
 
 local _border = "single"
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
-)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = _border,
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = _border,
+})
 
-vim.diagnostic.config {
-    float = { border = "rounded" }, 
-}
+vim.diagnostic.config({
+	float = { border = "rounded" },
+})

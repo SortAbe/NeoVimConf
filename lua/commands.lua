@@ -94,7 +94,7 @@ end, { nargs = 0 })
 local transparent = true
 vim.api.nvim_create_user_command("Trans", function(opts)
 	if transparent then
-		vim.api.nvim_set_hl(0, "Normal", { fg=NONE,  bg="#191919" })
+		vim.api.nvim_set_hl(0, "Normal", { fg=NONE,  bg="#101009" })
 		transparent = false
 	else
 		vim.api.nvim_set_hl(0, "Normal", { fg=NONE,  bg=NONE })

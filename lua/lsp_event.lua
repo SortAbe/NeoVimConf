@@ -12,9 +12,9 @@ local handlers = {
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or border
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 vim.api.nvim_create_autocmd({ "BufNew" }, {
@@ -78,6 +78,7 @@ function pyright()
 	lspconfig.pyright.setup({
 		on_attach = oa_function,
 		cmd = { "pyright-langserver", "--stdio" },
+		root_dir = require("lspconfig").util.root_pattern({ "main.py", ".git/" , "." }),
 		settings = {
 			pyright = { autoImportCompletion = true },
 			python = {
@@ -98,7 +99,7 @@ end
 vim.api.nvim_create_autocmd({ "BufRead" }, {
 	pattern = { "*.sh*" },
 	callback = efm,
-	lspconfig.bashls.setup({ on_attach = oa_function })
+	lspconfig.bashls.setup({ on_attach = oa_function }),
 })
 
 local not_found = true
@@ -108,6 +109,7 @@ local python_run = false
 local js_run = false
 local bash_run = false
 local html_run = false
+local php_run = false
 local css_run = false
 local sql_run = false
 local c_run = false
@@ -138,16 +140,19 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 	end,
 })
 
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 	pattern = { "*.js", "*.cjs", "*.mjs", "*.ts", "*.map" },
 	callback = function()
 		if js_run then
 			return
 		end
-		lspconfig.denols.setup({ on_attach = oa_function })
+		lspconfig.denols.setup({ on_attach = oa_function,
+			root_dir = require("lspconfig").util.root_pattern({ "index.html", "index.php", ".git/" , "." }),
+		})
 		not_found = false
 		js_run = true
+		vim.opt.expandtab = true
+		vim.opt.shiftwidth = 2
 	end,
 })
 
@@ -157,9 +162,31 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		if html_run then
 			return
 		end
-		lspconfig.html.setup({ on_attach = oa_function })
+		lspconfig.html.setup({ on_attach = oa_function,
+			root_dir = require("lspconfig").util.root_pattern({ "index.html", "index.php", ".git/" , "." }),
+		})
 		not_found = false
 		html_run = true
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
+	pattern = { "*.php" },
+	callback = function()
+		if php_run then
+			return
+		end
+		lspconfig.phpactor.setup({ on_attach = oa_function,
+			root_dir = require("lspconfig").util.root_pattern({"index.php", ".git/" , "." }),
+		})
+		not_found = false
+		php_run = true
+		root_dir = function(fname)
+			vim.cmd("e reached")
+			return nvim_lsp.util.root_pattern(
+				'index.html', 'index.php', '.git'
+			)(fname) or vim.fn.getcwd()
+		end
 	end,
 })
 
@@ -169,7 +196,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		if css_run then
 			return
 		end
-		lspconfig.cssls.setup({ on_attach = oa_function })
+		lspconfig.cssls.setup({ on_attach = oa_function,
+			root_dir = require("lspconfig").util.root_pattern({ "index.html", "index.php", ".git/" , "." }),
+		})
 		not_found = false
 		css_run = true
 	end,
@@ -181,7 +210,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		if sql_run then
 			return
 		end
-		lspconfig.sqls.setup({ on_attach = oa_function })
+		lspconfig.sqls.setup({ on_attach = oa_function,
+			root_dir = require("lspconfig").util.root_pattern({ "index.html", "index.php", ".git/" , "." }),
+		})
 		not_found = false
 		sql_run = true
 	end,
@@ -198,6 +229,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 			handlers = handlers,
 			capabilities = capabilities,
 			filetype = { "rust" },
+			root_dir = require("lspconfig").util.root_pattern({ "main.rs*", ".git/" , "." }),
 			diagnostic = true,
 		})
 		not_found = false

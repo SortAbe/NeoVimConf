@@ -9,8 +9,10 @@ return {
 				python = { "isort", "blue" },
 				-- Use a sub-list to run only the first available formatter
 				javascript = { "prettierd" },
+				html = { "prettierd" },
 				sh = { "beautysh" },
 				sql = { "sql_formatter" },
+				php = { "pretty-php" },
 			},
 			lsp_fallback = true,
 		})
