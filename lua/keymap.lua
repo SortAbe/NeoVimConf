@@ -9,10 +9,12 @@ vim.keymap.set("v", "<A-c>", '"*y', { silent = true }) --Alt c to copy to system
 
 vim.keymap.set("n", "<Space>x", ":Oil --float<CR>", { silent = true }) --File explore
 
-vim.keymap.set("n", "<Space>e", ":lua vim.lsp.buf.rename()<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<A-e>", ":Lspsaga rename<CR>", { silent = true }) --LSP
+vim.keymap.set("n", "<A-a>", ":Lspsaga code_action<CR>", { silent = true }) --LSP
+vim.keymap.set("n", "<A-o>", ":Lspsaga goto_definition<CR>", { silent = true }) --LSP
 
-vim.keymap.set("n", "<A-n>", ":lua vim.diagnostic.goto_next()<CR>", { silent = true }) --File explore
-vim.keymap.set("n", "<A-N>", ":lua vim.diagnostic.goto_prev()<CR>", { silent = true }) --File explore
+vim.keymap.set("n", "<A-n>", ":lua vim.diagnostic.goto_next()<CR>", { silent = true }) --LSP
+vim.keymap.set("n", "<A-N>", ":lua vim.diagnostic.goto_prev()<CR>", { silent = true }) --LSP
 vim.keymap.set("n", "<Space>u", ":e!<CR>", { silent = true }) --File explore
 vim.keymap.set("n", "<Space>U", ":normal 1000u<CR>", { silent = true }) --File explore
 vim.keymap.set("n", "<Space>R", ":normal 1000<C-R><CR>", { silent = true }) --File explore
