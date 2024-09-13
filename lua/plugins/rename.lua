@@ -8,6 +8,11 @@ return {
 			ui = {
 				code_action = "",
 			},
+			symbol_in_winbar = {
+				enable = false,
+				show_file = false,
+				folder_level = 0,
+			},
 		})
 	end,
 	dependencies = {
