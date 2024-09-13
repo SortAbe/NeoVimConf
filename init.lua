@@ -14,7 +14,7 @@ vim.opt.softtabstop = 4
 require("clip") --WSL clipboard integration
 require("keymap") --Keymaps
 require("mapping") --TreeSitter mapping
-require("lsp_event") --WSL clipboard integration
+require("lsp_conf") --WSL clipboard integration
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function(ev)
