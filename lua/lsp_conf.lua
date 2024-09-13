@@ -5,6 +5,8 @@ function oa_function(client, bufnr)
 	client.server_capabilities.semanticTokensProvider = nil
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
@@ -67,7 +69,6 @@ lspconfig.efm.setup({
 			markdown = { { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true } },
 		},
 	},
-	diagnostic = true,
 })
 
 lspconfig.pyright.setup({
@@ -108,6 +109,17 @@ lspconfig.denols.setup({
 		"html",
 		"typescriptreact",
 		"typescript.tsx",
+	},
+	diagnostic = true,
+})
+
+lspconfig.bashls.setup({
+	on_attach = oa_function,
+	handlers = handlers,
+	capabilities = capabilities,
+	root_dir = require("lspconfig").util.root_pattern({ ".git/", "." }),
+	filetypes = {
+		"sh",
 	},
 	diagnostic = true,
 })
