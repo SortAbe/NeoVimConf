@@ -91,6 +91,7 @@ lspconfig.pyright.setup({
 				typeCheckingMode = "on",
 				diagnosticSeverityOverrides = {
 					reportAttributeAccessIssue = "none",
+					reportOptionalIterable = "none",
 				},
 			},
 		},
@@ -238,7 +239,6 @@ lspconfig.powershell_es.setup({
 	handlers = handlers,
 	capabilities = capabilities,
 	filetype = {
-		"powershell",
 		"ps1",
 	},
 	root_dir = require("lspconfig").util.root_pattern({ ".git/", "." }),
@@ -253,6 +253,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "python" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 4
+		elseif vim.api.nvim_buf_get_option(0, "filetype") == "php" then
+			vim.opt.expandtab = true
+			vim.opt.shiftwidth = 4
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "html" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2
@@ -260,6 +263,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "java" then
+			vim.opt.expandtab = true
+			vim.opt.shiftwidth = 2
+		elseif vim.api.nvim_buf_get_option(0, "filetype") == "javascript" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "sql" then

@@ -13,7 +13,7 @@ end, { nargs = 0 })
 
 --Copy entire buffer into system clipboard
 vim.api.nvim_create_user_command("Copy", function(opts)
-	vim.cmd("silent! %y+")
+	vim.cmd('silent! ggVG\"*y')
 end, { nargs = 0 })
 
 --Toggle spelling

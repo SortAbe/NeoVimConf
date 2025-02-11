@@ -22,12 +22,13 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
 	end,
 })
 
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = "number"
 vim.o.cursorline = true --error gutter
 vim.o.cursorlineopt = "number" --merge with number line
---
+
 --Undo file
 vim.o.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
