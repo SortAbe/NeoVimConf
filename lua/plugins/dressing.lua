@@ -13,11 +13,8 @@ return{ 'stevearc/dressing.nvim', event = "CmdlineEnter", config = function()
     -- Can be 'left', 'right', or 'center'
     title_pos = "center",
 
-    -- When true, <Esc> will close the modal
-    insert_only = true,
-
-    -- When true, input will start in insert mode.
-    start_in_insert = true,
+	-- The initial mode when the window opens (insert|normal|visual|select).
+	start_mode = "insert",
 
     -- These are passed to nvim_open_win
     border = "rounded",

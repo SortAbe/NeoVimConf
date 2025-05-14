@@ -92,10 +92,10 @@ hi LSPInfoBorder guifg=#333333 guibg=NONE
 hi ColorColumn guifg=NONE guibg=#8b0000
 hi CursorLine guifg=NONE
 hi EndOfBuffer guifg=#add8e6
-hi StatusLine guifg=NONE gui=bold
+hi StatusLine guifg=NONE  gui=bold
 hi StatusLineNC guifg=NONE
-hi TabLineSel guifg=#333333 guibg=#ffffff gui=bold
-hi TabLine guifg=#333333 guibg=#d3d3d3
+hi TabLineSel guifg=#cccccc guibg=#101010   gui=bold
+hi TabLine guifg=#cccccc guibg=NONE
 
 hi CmpItemKind guifg=#cccccc guibg=NONE
 

@@ -4,7 +4,7 @@ return {
 	config = function()
 		function mode()
 			if vim.api.nvim_get_mode().mode == "n" then
-				return " N ⚡ "
+				return " N ⚡  "
 			elseif vim.api.nvim_get_mode().mode == "c" then
 				return " C   "
 			elseif vim.api.nvim_get_mode().mode == "i" then
@@ -23,14 +23,14 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = "cherry_rainbow",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "|" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
 				},
 				ignore_focus = {},
-				always_divide_middle = true,
+				always_divide_middle = false,
 				globalstatus = false,
 				refresh = {
 					statusline = 1000,
@@ -53,7 +53,6 @@ return {
 				lualine_x = { "searchcount", "encoding", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "os.date('%H:%M')" },
-				lualine_z = {},
 			},
 			tabline = {},
 			winbar = {},

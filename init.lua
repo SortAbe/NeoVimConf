@@ -6,15 +6,18 @@ require("lazy").setup("plugins", opts)
 
 --Overwritten
 vim.opt.expandtab = false
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+
+vim.o.autoindent = true
+vim.o.smartindent = true --when programming a new line autoindents
 
 --Custom
 require("clip") --WSL clipboard integration
 require("keymap") --Keymaps
 require("mapping") --TreeSitter mapping
-require("lsp_conf") --WSL clipboard integration
+--require("lsp_conf")
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function(ev)
@@ -50,8 +53,6 @@ vim.o.wrap = false
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd("set backspace=indent,eol,start")
 
-vim.o.autoindent = true
-vim.o.smartindent = true --when programming a new line autoindents
 
 vim.o.virtualedit = "onemore" --Allows cursor to move past the last char in line
 vim.opt.mouse = ""
@@ -81,8 +82,9 @@ vim.api.nvim_create_autocmd(
 	{ "BufEnter", "BufWinEnter" },
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*", command = "set et", group = "Enter" }) --force noet
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*", command = "LspStart", group = "Enter" }) --force noet
+
+--vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*", command = "set et", group = "Enter" }) --force noet
+--vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*", command = "LspStart", group = "Enter" }) --force noet
 
 local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
 vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
@@ -92,14 +94,13 @@ local group = vim.api.nvim_create_augroup("ReturnCursor", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", { command = "set guicursor=a:ver20-blinkon700-blinkoff300", group = group })
 
 --Disable spell checking in terminal.
-local Term = vim.api.nvim_create_augroup("Term", { clear = true })
-vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell nonu nornu", group = Term })
+--local Term = vim.api.nvim_create_augroup("Term", { clear = true })
+--vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell nonu nornu", group = Term })
 
 --Python
 vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
 
 local _border = "single"
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
 })
@@ -107,6 +108,34 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = _border,
 })
 
+vim.lsp.enable("arduino_language_server")
+vim.lsp.enable("bashls")
+vim.lsp.enable("clangd")
+vim.lsp.enable("cssls")
+vim.lsp.enable("denols")
+vim.lsp.enable("efm")
+vim.lsp.enable("html")
+vim.lsp.enable("phpactor")
+vim.lsp.enable("pyright")
+vim.lsp.enable("rust-analyzer")
+vim.lsp.enable("sqls")
 vim.diagnostic.config({
+	virtual_text = false,
 	float = { border = "rounded" },
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "󰙎",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+})
+local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	pattern = "*.*",
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+	group = "Hover",
 })

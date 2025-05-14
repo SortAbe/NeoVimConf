@@ -1,0 +1,23 @@
+vim.lsp.config["pyright"] = {
+	filetypes = {
+		"python",
+	},
+	root_markers = {
+		".git/",
+	},
+	cmd = { "pyright-langserver", "--stdio" },
+	workspace_required = false,
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "openFilesOnly",
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "on",
+				diagnosticSeverityOverrides = {
+					reportAttributeAccessIssue = "none",
+				},
+			},
+		},
+	},
+}
