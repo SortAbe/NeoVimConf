@@ -9,12 +9,13 @@ vim.lsp.config["denols"] = {
 		"typescriptreact",
 		"typescript.tsx",
 	},
-	root_markers = { 
-		"index.htm*", 
-		"index.htm*", 
-		"deno.json", 
-		"deno.jsonc", 
-		".git" },
+	root_markers = {
+		"index.htm*",
+		"index.htm*",
+		"deno.json",
+		"deno.jsonc",
+		".git",
+	},
 	settings = {
 		deno = {
 			enable = true,
@@ -48,3 +49,5 @@ vim.lsp.config["denols"] = {
 		})
 	end,
 }
+
+vim.opt.expandtab = true

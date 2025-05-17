@@ -13,25 +13,12 @@ vim.opt.softtabstop = 2
 vim.o.autoindent = true
 vim.o.smartindent = true --when programming a new line autoindents
 
---Custom
-require("clip") --WSL clipboard integration
-require("keymap") --Keymaps
-require("mapping") --TreeSitter mapping
---require("lsp_conf")
-
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-	callback = function(ev)
-		require("commands") --Commands
-	end,
-})
-
-
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = "number"
 vim.o.cursorline = true --error gutter
 vim.o.cursorlineopt = "number" --merge with number line
-
+--
 --Undo file
 vim.o.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
@@ -50,14 +37,10 @@ vim.o.pumheight = 8
 vim.o.updatetime = 250
 vim.o.scrolloff = 3 --Scroll at line from end
 
-vim.o.wrap = false
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd("set backspace=indent,eol,start")
-
-
 vim.o.virtualedit = "onemore" --Allows cursor to move past the last char in line
 vim.opt.mouse = ""
 
+vim.o.wrap = false
 vim.o.termguicolors = true
 vim.o.fillchars = "eob: "
 vim.opt.showmode = false
@@ -67,8 +50,7 @@ vim.opt.shortmess:append("a")
 vim.opt.shortmess:append("W")
 vim.opt.shortmess:append("l")
 
---vim.o.listchars = 'trail:-,nbsp:+,tab:▏ ,eol:↴' --White space hinting
-vim.o.listchars = "trail:-,nbsp:+,tab:▏ " --White space hinting
+vim.o.listchars = "trail:-,nbsp:+,tab:▏ " --Space hinting
 vim.opt.list = true
 
 vim.opt.spell = true
@@ -77,6 +59,21 @@ vim.opt.spelllang = "en_us" --Spelling
 vim.o.completeopt = "menuone,noinsert" --pop menu even with one option and do not insert
 vim.o.foldmethod = "manual"
 
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd("set backspace=indent,eol,start")
+
+--Custom
+require("clip")
+require("keymap")
+require("mapping")
+require("filetype")
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+	callback = function(ev)
+		require("commands") --Commands
+	end,
+})
+
 --Remember folds
 local enter = vim.api.nvim_create_augroup("Enter", { clear = true })
 vim.api.nvim_create_autocmd(
@@ -84,19 +81,12 @@ vim.api.nvim_create_autocmd(
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
 
---vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.sh*", command = "set et", group = "Enter" }) --force noet
---vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.*", command = "LspStart", group = "Enter" }) --force noet
-
 local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
-vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
+vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*", command = "mkview", group = "Leave" })
 
 --Return cursor shape upon exit
 local group = vim.api.nvim_create_augroup("ReturnCursor", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", { command = "set guicursor=a:ver20-blinkon700-blinkoff300", group = group })
-
---Disable spell checking in terminal.
---local Term = vim.api.nvim_create_augroup("Term", { clear = true })
---vim.api.nvim_create_autocmd("TermOpen", { command = "setlocal nospell nonu nornu", group = Term })
 
 --Python
 vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
@@ -107,6 +97,15 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = _border,
+})
+
+local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	pattern = "*",
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+	group = "Hover",
 })
 
 vim.lsp.enable("arduino_language_server")
@@ -131,12 +130,4 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = "",
 		},
 	},
-})
-local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	pattern = "*.*",
-	callback = function()
-		vim.diagnostic.open_float(nil, { focus = false })
-	end,
-	group = "Hover",
 })
