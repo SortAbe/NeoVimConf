@@ -12,6 +12,7 @@ vim.api.nvim_set_hl(0, "@field.sql", { link = "StorageClass" })
 vim.api.nvim_set_hl(0, "@tag.html", { link = "Tag" })
 vim.api.nvim_set_hl(0, "@tag.delimiter.html", { link = "Delimiter" })
 vim.api.nvim_set_hl(0, "@tag.attribute.html", { link = "StorageClass" })
+vim.api.nvim_set_hl(0, "@operator.html", { link = "Delimiter" })
 
 --CSS
 vim.api.nvim_set_hl(0, "@property.css", { link = "StorageClass" })

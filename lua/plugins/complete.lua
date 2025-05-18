@@ -27,6 +27,36 @@ return {
 			Keyword = "󰌆",
 		}
 
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { link = "Constant" })
+		vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "Constant" })
+		vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "Function" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFunction", { link = "Function" })
+		vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { link = "Keyword" })
+		vim.api.nvim_set_hl(0, "CmpItemKindField", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindVariable", { link = "Variable" })
+		vim.api.nvim_set_hl(0, "CmpItemKindClass", { link = "StorageClass" })
+		vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindValue", { link = "Number" })
+		vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { link = "Keyword" })
+		vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { link = "SpecialKey" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFile", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFolder", { link = "Directory" })
+
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchDefault", { link = "Constant" })
+		vim.api.nvim_set_hl(0, "CmpItemKindTextDefault", { link = "Constant" })
+		vim.api.nvim_set_hl(0, "CmpItemKindMethodDefault", { link = "Function" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFunctionDefault", { link = "Function" })
+		vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { link = "Keyword" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFieldDefault", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindVariableDefault", { link = "Variable" })
+		vim.api.nvim_set_hl(0, "CmpItemKindClassDefault", { link = "StorageClass" })
+		vim.api.nvim_set_hl(0, "CmpItemKindInterfaceDefault", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindValueDefault", { link = "Number" })
+		vim.api.nvim_set_hl(0, "CmpItemKindKeywordDefault", { link = "Keyword" })
+		vim.api.nvim_set_hl(0, "CmpItemKindSnippetDefault", { link = "SpecialKey" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFileDefault", { link = "Property" })
+		vim.api.nvim_set_hl(0, "CmpItemKindFolderDefault", { link = "Directory" })
+
 		cmp.setup({
 			preselect = cmp.PreselectMode.None,
 			completion = { completeopt = "noselect" },
@@ -70,7 +100,6 @@ return {
 		})
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
@@ -79,35 +108,6 @@ return {
 				{ name = "path" },
 			}),
 		})
-
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { link = "Constant" })
-		vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "Constant" })
-		vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "Function" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFunction", { link = "Function" })
-		vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { link = "Keyword" })
-		vim.api.nvim_set_hl(0, "CmpItemKindField", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindVariable", { link = "Variable" })
-		vim.api.nvim_set_hl(0, "CmpItemKindClass", { link = "StorageClass" })
-		vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindValue", { link = "Number" })
-		vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { link = "Keyword" })
-		vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { link = "SpecialKey" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFile", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFolder", { link = "Directory" })
-
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchDefault", { link = "Constant" })
-		vim.api.nvim_set_hl(0, "CmpItemKindTextDefault", { link = "Constant" })
-		vim.api.nvim_set_hl(0, "CmpItemKindMethodDefault", { link = "Function" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFunctionDefault", { link = "Function" })
-		vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", { link = "Keyword" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFieldDefault", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindVariableDefault", { link = "Variable" })
-		vim.api.nvim_set_hl(0, "CmpItemKindClassDefault", { link = "StorageClass" })
-		vim.api.nvim_set_hl(0, "CmpItemKindInterfaceDefault", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindValueDefault", { link = "Number" })
-		vim.api.nvim_set_hl(0, "CmpItemKindKeywordDefault", { link = "Keyword" })
-		vim.api.nvim_set_hl(0, "CmpItemKindSnippetDefault", { link = "SpecialKey" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFileDefault", { link = "Property" })
-		vim.api.nvim_set_hl(0, "CmpItemKindFolderDefault", { link = "Directory" })
 	end,
 }
+

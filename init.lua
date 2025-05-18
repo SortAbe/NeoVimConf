@@ -1,8 +1,8 @@
+vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
 local opts = require("lazy_opts")
 require("lazy").setup("plugins", opts)
-vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 
 --Overwritten
 vim.opt.expandtab = false
@@ -124,10 +124,10 @@ vim.diagnostic.config({
 	float = { border = "rounded" },
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "󰙎",
-			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "󰔷",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
 		},
 	},
 })

@@ -49,5 +49,3 @@ vim.lsp.config["denols"] = {
 		})
 	end,
 }
-
-vim.opt.expandtab = true

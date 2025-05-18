@@ -3,9 +3,9 @@ hi clear
 let g:colors_name = 'cherry_rainbow'
 let s:t_Co = &t_Co
 
-hi! link VertSplit StatusLineNC
-hi! link StatusLineTerm StatusLine
-hi! link StatusLineTermNC StatusLineNC
+"hi! link VertSplit StatusLineNC
+"hi! link StatusLineTerm StatusLine
+"hi! link StatusLineTermNC StatusLineNC
 hi! link TabLineFill TabLine
 hi! link Terminal Normal
 hi! link CursorColumn CursorLine
@@ -45,7 +45,7 @@ hi! link Structure Typedef
 hi! link Float Number
 
 "Custom:
-hi Normal guifg=NONE guibg=#101010
+hi Normal guifg=NONE guibg=#090909
 
 "Language
 hi Type guifg=#8D81C2 gui=bold
@@ -63,7 +63,7 @@ hi Comment guifg=#777777 guibg=NONE
 hi Function guifg=#75507B
 hi Macro guifg=#a9507B
 hi Special guifg=#00dddd
-hi Parameter guifg=#1EBBFF
+hi Parameter guifg=#82aaff
 hi Delimiter guifg=#ffa500
 
 hi Statement guifg=#D35675  gui=bold
@@ -72,8 +72,8 @@ hi Typedef guifg=#50cccc  gui=bold
 hi SpecialComment guifg=#00ff00
 
 "HTML
-hi Tag guifg=#4465B4
-hi StorageClass guifg=#82aaff gui=bold
+hi Tag guifg=#5E409D
+hi StorageClass guifg=#CE5D97 gui=bold
 hi Title guifg=#ff80ff
 "End Of Language
 
@@ -96,8 +96,8 @@ hi LSPInfoBorder guifg=#333333 guibg=NONE
 hi ColorColumn guifg=NONE guibg=#8b0000
 hi CursorLine guifg=NONE
 hi EndOfBuffer guifg=#add8e6
-hi StatusLine guifg=NONE  gui=bold
-hi StatusLineNC guifg=NONE
+hi StatusLine guifg=NONE  guibg=NONE
+hi StatusLineNC guifg=NONE  guibg=NONE
 hi TabLineSel guifg=#cccccc guibg=#101010   gui=bold
 hi TabLine guifg=#cccccc guibg=NONE
 
