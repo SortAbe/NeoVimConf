@@ -1,8 +1,8 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
 local opts = require("lazy_opts")
-vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 require("lazy").setup("plugins", opts)
+vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
 
 --Overwritten
 vim.opt.expandtab = false
@@ -81,8 +81,8 @@ vim.api.nvim_create_autocmd(
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
 
-local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
-vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*", command = "mkview", group = "Leave" })
+--local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
+--vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*", command = "mkview", group = "Leave" })
 
 --Return cursor shape upon exit
 local group = vim.api.nvim_create_augroup("ReturnCursor", { clear = true })

@@ -26,7 +26,6 @@ hi! link lCursor Cursor
 hi! link CurSearch Search
 hi! link CursorLineFold CursorLine
 hi! link CursorLineSign CursorLine
-hi! link Boolean Constant
 hi! link Character Constant
 hi! link Conditional Statement
 hi! link Define PreProc
@@ -37,7 +36,8 @@ hi! link Operator Statement
 hi! link PreCondit PreProc
 hi! link Repeat Statement
 hi! link SpecialChar Special
-hi! link String Constant
+"hi! link String Constant
+"hi! link Boolean Constant
 hi! link MessageWindow Pmenu
 hi! link PopupNotification Todo
 
@@ -45,33 +45,37 @@ hi! link Structure Typedef
 hi! link Float Number
 
 "Custom:
-hi Normal guifg=NONE guibg=NONE
-"
-"Code highlights
-hi Statement guifg=#D35675  gui=bold
-hi Identifier guifg=#ff80ff
-hi Variable guifg=#dddddd
+hi Normal guifg=NONE guibg=#101010
+
+"Language
 hi Type guifg=#8D81C2 gui=bold
-hi Number guifg=#FF0000
-hi Boolean guifg=#FF0010
-hi Parameter guifg=#1EBBFF
+hi Keyword guifg=#4465b4
 hi PreProc guifg=#5FD75F
 
-hi Typedef guifg=#50cccc  gui=bold
-hi StorageClass guifg=#4465B4 gui=bold
-hi Tag guifg=#4465B4
-hi Special guifg=#00dddd
-hi Delimiter guifg=#ffa500
+hi Variable guifg=#dddddd
+hi Boolean guifg=#FF0010
+hi Number guifg=#FF0000
+hi String guifg=#4EA006
 hi Constant guifg=#4EA006
 
-hi SpecialComment guifg=#00ff00
+hi Comment guifg=#777777 guibg=NONE
 
 hi Function guifg=#75507B
 hi Macro guifg=#a9507B
+hi Special guifg=#00dddd
+hi Parameter guifg=#1EBBFF
+hi Delimiter guifg=#ffa500
 
-hi Keyword guifg=#4465b4
-hi Comment guifg=#777777 guibg=NONE
-"End of code highlights
+hi Statement guifg=#D35675  gui=bold
+hi Identifier guifg=#ff80ff
+hi Typedef guifg=#50cccc  gui=bold
+hi SpecialComment guifg=#00ff00
+
+"HTML
+hi Tag guifg=#4465B4
+hi StorageClass guifg=#82aaff gui=bold
+hi Title guifg=#ff80ff
+"End Of Language
 
 "Meta
 hi LineNr guifg=#7A82A3
@@ -132,7 +136,6 @@ hi WildMenu guifg=#000000 guibg=#ffff00 gui=bold
 hi debugBreakpoint guifg=#00008b guibg=#ff0000
 hi debugPC guifg=#00008b guibg=#0000ff
 hi Directory guifg=#00ffff
-hi Title guifg=#ff80ff
 hi Ignore guifg=#333333
 hi Todo guifg=#ffff00 guibg=#000000 
 hi Underlined guifg=#80a0ff gui=underline cterm=underline

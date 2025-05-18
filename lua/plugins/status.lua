@@ -4,7 +4,7 @@ return {
 	config = function()
 		function mode()
 			if vim.api.nvim_get_mode().mode == "n" then
-				return " N ⚡  "
+				return " N  "
 			elseif vim.api.nvim_get_mode().mode == "c" then
 				return " C   "
 			elseif vim.api.nvim_get_mode().mode == "i" then
@@ -22,9 +22,9 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "cherry_rainbow",
-				component_separators = { left = "", right = "|" },
-				section_separators = { left = "", right = "" },
+				theme = "codedark",
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},

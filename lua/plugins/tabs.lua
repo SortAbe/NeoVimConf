@@ -8,8 +8,8 @@ require("bufferline").setup({
 		buffer_close_icon = "x",
 		modified_icon = "●",
 		close_icon = "X",
-		left_trunc_marker = "|",
-		right_trunc_marker = "\\",
+		left_trunc_marker = "",
+		right_trunc_marker = "",
 		max_name_length = 12,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		truncate_names = true, -- whether or not tab names should be truncated
@@ -24,7 +24,7 @@ require("bufferline").setup({
 		show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
-		separator_style = "thin",
+		separator_style = "slant",
 		--always_show_bufferline = false,
 		offsets = { { text_align = "left", separator = true } },
 	},

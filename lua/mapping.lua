@@ -2,10 +2,10 @@
 vim.api.nvim_set_hl(0, "@type.builtin.java", { link = "Type" })
 vim.api.nvim_set_hl(0, "@punctuation.bracket.java", { link = "Delimiter" })
 vim.api.nvim_set_hl(0, "@variable.java", { link = "Variable" })
-vim.api.nvim_set_hl(0, "@keyword.import.java", { link = "PreProc" })
+vim.api.nvim_set_hl(0, "@keyword.import.java", { link = "Keyword" })
 
 --SQL
-vim.api.nvim_set_hl(0, "@variable.sql", { link = "Constant" })
+vim.api.nvim_set_hl(0, "@variable.sql", { link = "Variable" })
 vim.api.nvim_set_hl(0, "@field.sql", { link = "StorageClass" })
 
 --HTML
