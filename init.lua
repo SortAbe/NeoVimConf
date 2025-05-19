@@ -108,6 +108,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	group = "Hover",
 })
 
+vim.lsp.enable("awkls")
 vim.lsp.enable("arduino_language_server")
 vim.lsp.enable("bashls")
 vim.lsp.enable("clangd")
