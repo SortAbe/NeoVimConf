@@ -15,9 +15,9 @@ vim.lsp.config["pyright"] = {
 				useLibraryCodeForTypes = true,
 				typeCheckingMode = "on",
 				extraPaths = { "~/.local/lib/python3.11/site-packages", "/usr/lib/python3/dist-packages" },
-				diagnosticSeverityOverrides = {
-					reportAttributeAccessIssue = "none",
-				},
+				diagnosticSeverityOverrides = { reportAttributeAccessIssue = "none",},
+				pythonVersion = "3.11",
+				pythonPlatform = "Linux",
 			},
 		},
 	},
