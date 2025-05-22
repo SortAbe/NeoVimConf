@@ -24,6 +24,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "sql" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2
+		elseif vim.api.nvim_buf_get_option(0, "filetype") == "awk" then
+			vim.opt.expandtab = true
+			vim.opt.shiftwidth = 2
 		end
 	end,
 })

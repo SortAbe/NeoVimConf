@@ -6,6 +6,7 @@ let s:t_Co = &t_Co
 "hi! link VertSplit StatusLineNC
 "hi! link StatusLineTerm StatusLine
 "hi! link StatusLineTermNC StatusLineNC
+
 hi! link TabLineFill TabLine
 hi! link Terminal Normal
 hi! link CursorColumn CursorLine
@@ -36,11 +37,8 @@ hi! link Operator Statement
 hi! link PreCondit PreProc
 hi! link Repeat Statement
 hi! link SpecialChar Special
-"hi! link String Constant
-"hi! link Boolean Constant
 hi! link MessageWindow Pmenu
 hi! link PopupNotification Todo
-
 hi! link Structure Typedef
 hi! link Float Number
 

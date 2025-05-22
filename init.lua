@@ -1,4 +1,5 @@
-vim.cmd("colorscheme cherry_rainbow") --Theme, needs to run before treeSitter below
+require("colors/cherry_rainbow")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
 local opts = require("lazy_opts")
@@ -18,7 +19,7 @@ vim.o.relativenumber = true
 vim.o.signcolumn = "number"
 vim.o.cursorline = true --error gutter
 vim.o.cursorlineopt = "number" --merge with number line
---
+
 --Undo file
 vim.o.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
@@ -41,7 +42,7 @@ vim.o.virtualedit = "onemore" --Allows cursor to move past the last char in line
 vim.opt.mouse = ""
 
 vim.o.wrap = false
-vim.o.termguicolors = true
+--vim.o.termguicolors = true
 vim.o.fillchars = "eob: "
 vim.opt.showmode = false
 vim.o.shortmess = "S"

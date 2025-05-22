@@ -3,6 +3,9 @@ return {
 	event = "CmdlineEnter",
 	config = function()
 		require("mason").setup({
+			install_root_dir = vim.fn.expand('$HOME/.bin/lsp'),
+			path = "append",
+			max_concurrent_installers = 6,
 			registries = {
 				"github:mason-org/mason-registry",
 			},
