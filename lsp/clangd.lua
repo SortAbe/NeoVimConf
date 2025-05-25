@@ -1,5 +1,5 @@
 vim.lsp.config["clangd"] = {
-	cmd = { "clangd" },
+	cmd = { "clangd", "--log=verbose" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	root_markers = {
 		".clangd",
@@ -9,6 +9,21 @@ vim.lsp.config["clangd"] = {
 		"compile_flags.txt",
 		"configure.ac", -- AutoTools
 		".git",
+	},
+	settings = {
+		clangd = {
+			InlayHints = {
+				Enabled  = "yes",
+				ParameterNames = "yes",
+				BlockEnd = "yes",
+				Designators = "yes",
+				DeducedTypes = "yes",
+				DefaultArguments = "yes",
+			},
+			Diagnostics = {
+				Suppress = "*",
+			},
+		},
 	},
 	capabilities = {
 		textDocument = {
@@ -26,6 +41,7 @@ vim.lsp.config["clangd"] = {
 		vim.api.nvim_buf_create_user_command(0, "LspClangdShowSymbolInfo", function()
 			symbol_info()
 		end, { desc = "Show symbol info" })
+		vim.lsp.inlay_hint.enable(true)
 	end,
 }
 --The code below is from nvim lsp config

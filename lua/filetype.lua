@@ -27,6 +27,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "awk" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2
+		elseif vim.api.nvim_buf_get_option(0, "filetype") == "lua" then
+			vim.opt.expandtab = false
+			vim.opt.shiftwidth = 2
+			vim.opt.tabstop = 3
 		end
 	end,
 })
