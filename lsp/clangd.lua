@@ -1,5 +1,5 @@
 vim.lsp.config["clangd"] = {
-	cmd = { "clangd", "--log=verbose" },
+	cmd = { "clangd" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	root_markers = {
 		".clangd",
@@ -20,8 +20,16 @@ vim.lsp.config["clangd"] = {
 				DeducedTypes = "yes",
 				DefaultArguments = "yes",
 			},
+			Completion = {
+				AllScopes  = "yes",
+				ArgumentLists = "FullPlaceholders",
+				HeaderInsertion = "IWYU",
+				CodePatterns = "All",
+			},
 			Diagnostics = {
-				Suppress = "*",
+				ClangTidy  = {
+				  Add = "modernize*",
+				},
 			},
 		},
 	},
