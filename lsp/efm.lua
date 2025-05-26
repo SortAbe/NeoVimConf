@@ -1,5 +1,5 @@
 vim.lsp.config["efm"] = {
-	cmd = "efm-langserver",
+	cmd = {"efm-langserver"},
 	filetypes = {
 		"lua",
 		"sh",
