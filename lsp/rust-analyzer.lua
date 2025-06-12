@@ -94,10 +94,10 @@ return {
 			serverStatusNotification = true,
 		},
 		textDocument = {
-			semanticTokens = vim.NIL,
+			semanticTokens = nil,
 		},
 		workspace = {
-			semanticTokens = vim.NIL,
+			semanticTokens = nil,
 		},
 	},
 	before_init = function(init_params, config)

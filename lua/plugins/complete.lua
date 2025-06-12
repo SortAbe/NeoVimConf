@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+	event = "UIEnter",
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -99,9 +100,15 @@ return {
 			),
 		})
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
+			window = {
+				completion = {
+					border = "rounded",
+					col_offset = -3,
+					winhighlight = "Normal:Pmenu,FloatBorder:PmenuThumb,CursorLine:PmenuSel",
+				},
+			},
 			sources = cmp.config.sources({
 				{ name = "cmdline" },
 			}, {
@@ -110,4 +117,3 @@ return {
 		})
 	end,
 }
-

@@ -106,6 +106,11 @@ vim.api.nvim_set_hl(0, "StatusLineNC", {fg = "NONE", bg = "NONE"})
 vim.api.nvim_set_hl(0, "TabLineSel", {fg = "#cccccc", bg = "#101010", bold = true})
 vim.api.nvim_set_hl(0, "TabLine", {fg = "#cccccc", bg = "NONE"})
 
+--Noice
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", {fg = "#404040"})
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch", {fg = "#98BB6C"})
+vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", {fg = "#404040"})
+
 --Unknown
 vim.api.nvim_set_hl(0, "NonText", {fg = "#444444"})
 vim.api.nvim_set_hl(0, "MsgArea", {fg = "#add8e6"})

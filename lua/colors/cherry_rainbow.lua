@@ -37,7 +37,7 @@ vim.api.nvim_set_hl(0, "Structure", { link = "Typedef" })
 vim.api.nvim_set_hl(0, "Float", { link = "Number" })
 
 --Background
-vim.api.nvim_set_hl(0, "Normal", {fg = "NONE", bg = "#1E1E1E"})
+vim.api.nvim_set_hl(0, "Normal", {fg = "NONE", bg = "#151515"})
 
 --Language
 vim.api.nvim_set_hl(0, "Type", {fg = "#8D81C2", gui=bold })
@@ -48,7 +48,7 @@ vim.api.nvim_set_hl(0, "Variable", {fg = "#DDDDDD" })
 vim.api.nvim_set_hl(0, "Boolean", {fg = "#FF0000" })
 vim.api.nvim_set_hl(0, "Number", {fg = "#FF0000" })
 vim.api.nvim_set_hl(0, "String", {fg = "#4EA006" })
-vim.api.nvim_set_hl(0, "Constant", {fg = "#4EA006" })
+vim.api.nvim_set_hl(0, "Constant", {fg = "#4A7006" })
 
 vim.api.nvim_set_hl(0, "Comment", {fg = "#777777", bg = "NONE" })
 
@@ -85,7 +85,7 @@ vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = "#00ff00"})
 vim.api.nvim_set_hl(0, "DiagnosticHint", {fg = "#57E2E2"})
 --Diagnostic window
 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "NONE"})
-vim.api.nvim_set_hl(0, "FLoatBorder", {fg = "#98BB6C", bg = "NONE"})
+vim.api.nvim_set_hl(0, "FLoatBorder", {fg = "#404040", bg = "NONE"})
 vim.api.nvim_set_hl(0, "LSPInfoBorder", {fg = "#333333", bg = "NONE"})
 
 --Spelling
@@ -97,7 +97,7 @@ vim.api.nvim_set_hl(0, "Underlined", {fg = "#80a0ff", underline = true})
 
 --Auto complete window
 vim.api.nvim_set_hl(0, "Pmenu", {fg = "#dddddd", bg = "NONE"})
-vim.api.nvim_set_hl(0, "PmenuThumb", {fg = "#98BB6C", bg = "NONE"})
+vim.api.nvim_set_hl(0, "PmenuThumb", {fg = "#303030", bg = "NONE"})
 vim.api.nvim_set_hl(0, "PmenuSbar", {fg = "#ff0000", bg = "#00ffff"})
 vim.api.nvim_set_hl(0, "PmenuSel", {fg = "#cccc00", bg = "NONE"})
 vim.api.nvim_set_hl(0, "CmpItemKind", {fg = "#cccccc", bg = "NONE"})
@@ -108,6 +108,13 @@ vim.api.nvim_set_hl(0, "StatusLineNC", {fg = "NONE", bg = "NONE"})
 
 vim.api.nvim_set_hl(0, "TabLineSel", {fg = "#cccccc", bg = "#101010", bold = true})
 vim.api.nvim_set_hl(0, "TabLine", {fg = "#cccccc", bg = "NONE"})
+
+--Noice
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", {fg = "#404040"})
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch", {fg = "#98BB6C"})
+vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", {fg = "#404040"})
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch", {fg = "#bbbb00"})
+vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorderSearch", {fg = "#5F8700"})
 
 --Unknown
 vim.api.nvim_set_hl(0, "NonText", {fg = "#444444"})

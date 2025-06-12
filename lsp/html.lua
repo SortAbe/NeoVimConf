@@ -1,4 +1,6 @@
 vim.lsp.config["html"] = {
+	cmd = { "vscode-html-language-server", "--stdio" },
+	detached = true,
 	filetypes = {
 		"templ",
 		"html",
@@ -8,7 +10,6 @@ vim.lsp.config["html"] = {
 		"index.htm*",
 	},
 	workspace_required = false,
-	cmd = { "vscode-html-language-server", "--stdio" },
 	settings = {},
 	init_options = {
 		provideFormatter = true,

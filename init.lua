@@ -1,4 +1,6 @@
 require("colors/cherry_rainbow")
+--require("colors/vscode")
+-- require("colors/mellow_dark")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
@@ -36,13 +38,12 @@ vim.o.smartcase = true --Match case only with upper case
 vim.o.incsearch = true
 vim.o.pumheight = 8
 vim.o.updatetime = 250
-vim.o.scrolloff = 3 --Scroll at line from end
+vim.o.scrolloff = 2 --Scroll at line from end
 
 vim.o.virtualedit = "onemore" --Allows cursor to move past the last char in line
 vim.opt.mouse = ""
 
 vim.o.wrap = false
---vim.o.termguicolors = true
 vim.o.fillchars = "eob: "
 vim.opt.showmode = false
 vim.o.shortmess = "S"
@@ -60,14 +61,11 @@ vim.opt.spelllang = "en_us" --Spelling
 vim.o.completeopt = "menuone,noinsert" --pop menu even with one option and do not insert
 vim.o.foldmethod = "manual"
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd("set whichwrap+=<,>,[,]")
 vim.cmd("set backspace=indent,eol,start")
 
 --Custom
-require("clip")
-require("keymap")
 require("mapping")
-require("filetype")
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function(ev)
@@ -82,8 +80,8 @@ vim.api.nvim_create_autocmd(
 	{ pattern = "*.*", command = "silent! loadview", group = "Enter" }
 )
 
---local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
---vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*", command = "mkview", group = "Leave" })
+local leave = vim.api.nvim_create_augroup("Leave", { clear = true })
+vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, { pattern = "*.*", command = "mkview", group = "Leave" })
 
 --Return cursor shape upon exit
 local group = vim.api.nvim_create_augroup("ReturnCursor", { clear = true })
@@ -100,30 +98,63 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = _border,
 })
 
+diag_show = true
 local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	pattern = "*",
 	callback = function()
-		vim.diagnostic.open_float(nil, { focus = false })
+		if diag_show then
+			vim.diagnostic.show()
+			vim.diagnostic.open_float(nil, { focus = false })
+		else
+			vim.diagnostic.hide()
+		end
 	end,
 	group = "Hover",
 })
 
-vim.lsp.enable("awkls")
-vim.lsp.enable("arduino_language_server")
-vim.lsp.enable("bashls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("cssls")
-vim.lsp.enable("denols")
-vim.lsp.enable("efm")
-vim.lsp.enable("html")
-vim.lsp.enable("phpactor")
-vim.lsp.enable("pyright")
-vim.lsp.enable("rust-analyzer")
-vim.lsp.enable("sqls")
+local Hover = vim.api.nvim_create_augroup("Insert", { clear = true })
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+	pattern = "*",
+	callback = function()
+		diag_show = false
+		vim.diagnostic.hide()
+	end,
+	group = "Insert",
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+	pattern = "*",
+	callback = function()
+		diag_show = true
+		vim.diagnostic.show()
+	end,
+	group = "Insert",
+})
+
+vim.lsp.enable({
+	"awkls",
+	"arduino_language_server",
+	"bashls",
+	"clangd",
+	"cssls",
+	"denols", --js
+	"html",
+	"phpactor",
+	"pyright",
+	-- "pyrefly",
+	"rust-analyzer",
+	"sqls",
+})
 vim.diagnostic.config({
 	virtual_text = false,
-	float = { border = "rounded" },
+	virtual_line = false,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
+	},
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "",
@@ -132,4 +163,11 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = "",
 		},
 	},
+	numhl = {
+		[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+		[vim.diagnostic.severity.WARN] = "WarningMsg",
+	},
 })
+require("keymap")
+require("clip")
+require("filetype")

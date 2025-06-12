@@ -1,5 +1,6 @@
 vim.lsp.config["efm"] = {
 	cmd = {"efm-langserver"},
+	detached = true,
 	filetypes = {
 		"lua",
 		"sh",

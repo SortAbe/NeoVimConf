@@ -1,11 +1,19 @@
 vim.lsp.config["pyright"] = {
+	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = {
 		"python",
 	},
 	root_markers = {
 		".git/",
 	},
-	cmd = { "pyright-langserver", "--stdio" },
+	capabilities = {
+		textDocument = {
+			semanticTokens = nil,
+		},
+		workspace = {
+			semanticTokens = nil,
+		},
+	},
 	workspace_required = false,
 	settings = {
 		python = {

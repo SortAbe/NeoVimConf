@@ -1,5 +1,6 @@
 vim.lsp.config["denols"] = {
 	cmd = { "deno", "lsp" },
+	detached = true,
 	cmd_env = { NO_COLOR = true },
 	filetypes = {
 		"javascript",

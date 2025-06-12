@@ -40,10 +40,12 @@ vim.api.nvim_create_user_command("Diag", function(opts)
 	if Toggled then
 		vim.opt.eventignore = "CursorHoldI,CursorHold"
 		vim.diagnostic.config({ virtual_text = true })
+		vim.diagnostic.config({ virtual_line = false })
 		Toggled = false
 	else
 		vim.opt.eventignore = ""
 		vim.diagnostic.config({ virtual_text = false })
+		vim.diagnostic.config({ virtual_line = true })
 		Toggled = true
 	end
 end, { nargs = 0 })

@@ -1,5 +1,6 @@
 --Navigation
 vim.keymap.set("n", "<A-j>", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<A-h>", ":wprev<CR>", { silent = true })
 vim.keymap.set("n", "<A-l>", ":noh | echo<CR>", { silent = true })
 vim.keymap.set("n", "<A-k>", ":bprev<CR>", { silent = true })
 vim.keymap.set("n", "<A-d>", ":bd<CR>", { silent = true })

@@ -5,7 +5,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 			vim.opt.shiftwidth = 4
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "python" then
 			vim.opt.expandtab = true
-			vim.opt.shiftwidth = 4
+			vim.opt.shiftwidth = 0
+			-- vim.o.autoindent = false
+			-- vim.o.smartindent = false --when programming a new line autoindents
+			Set = vim.opt
+			Let = vim.g
+			Set.shiftwidth = 0
+			Let.pyindent_open_paren = Set.shiftwidth
+		elseif vim.api.nvim_buf_get_option(0, "filetype") == "cpp" then
+			vim.opt.expandtab = true
+			vim.opt.shiftwidth = 3
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "php" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 4
@@ -29,8 +38,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 			vim.opt.shiftwidth = 2
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "lua" then
 			vim.opt.expandtab = false
-			vim.opt.shiftwidth = 2
-			vim.opt.tabstop = 3
+			vim.opt.shiftwidth = 4
+			vim.opt.tabstop = 4
 		end
 	end,
 })
