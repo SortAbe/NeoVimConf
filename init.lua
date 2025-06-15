@@ -1,6 +1,7 @@
-require("colors/cherry_rainbow")
---require("colors/vscode")
--- require("colors/mellow_dark")
+vim.cmd("colorscheme cherry_rainbow")
+
+require("meta_colors/meta")
+require("meta_colors/map")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 vim.opt.rtp:prepend(lazypath)
@@ -35,10 +36,11 @@ vim.opt.splitbelow = true
 vim.o.showcmd = true
 vim.o.ignorecase = true
 vim.o.smartcase = true --Match case only with upper case
-vim.o.incsearch = true
 vim.o.pumheight = 8
 vim.o.updatetime = 250
 vim.o.scrolloff = 2 --Scroll at line from end
+vim.o.incsearch = true
+vim.o.wrapscan = false
 
 vim.o.virtualedit = "onemore" --Allows cursor to move past the last char in line
 vim.opt.mouse = ""
@@ -46,7 +48,7 @@ vim.opt.mouse = ""
 vim.o.wrap = false
 vim.o.fillchars = "eob: "
 vim.opt.showmode = false
-vim.o.shortmess = "S"
+-- vim.o.shortmess = "S" # Noice conflict
 vim.opt.shortmess:append("F")
 vim.opt.shortmess:append("a")
 vim.opt.shortmess:append("W")
@@ -137,11 +139,10 @@ vim.lsp.enable({
 	"bashls",
 	"clangd",
 	"cssls",
-	"denols", --js
+	"denols",
 	"html",
 	"phpactor",
 	"pyright",
-	-- "pyrefly",
 	"rust-analyzer",
 	"sqls",
 })
@@ -160,7 +161,7 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.ERROR] = "",
 			[vim.diagnostic.severity.WARN] = "󰔷",
 			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.HINT] = "󰌵",
 		},
 	},
 	numhl = {

@@ -1,4 +1,3 @@
--- lazy.nvim
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
@@ -7,6 +6,16 @@ return {
 		{
 			"rcarriga/nvim-notify",
 			opts = {
+				render = "compact",
+				fps = 30,
+				icons = {
+					DEBUG = "",
+					ERROR = "",
+					INFO = "󰌵",
+					TRACE = "",
+					WARN = "󰔷",
+				},
+				level = 2,
 				stages = "fade", -- other choice will has a minimal animation.
 				timeout = 1400, -- in ms, 1000 is one second.
 			},
@@ -24,8 +33,8 @@ return {
 					-- icon_hl_group: optional hl_group for the icon
 					-- title: set to anything or empty string to hide
 					cmdline = { pattern = "^:", icon = "", lang = "vim" },
-					search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-					search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+					search_down = { kind = "search", pattern = "^/", icon = " 󰜮", lang = "regex" },
+					search_up = { kind = "search", pattern = "^%?", icon = " 󰜷", lang = "regex" },
 					filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
 					lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
 					help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
@@ -41,7 +50,7 @@ return {
 				view_error = "notify", -- view for errors
 				view_warn = "notify", -- view for warnings
 				view_history = "messages", -- view for :messages
-				view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+				view_search = false, -- view for search count messages. Set to `false` to disable
 			},
 			lsp = {
 				progress = {
@@ -112,7 +121,7 @@ return {
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = true, -- add a border to hover docs and signature help
 			},
-			throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
+			throttle = 1000 / 15, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
 			views = {
 				cmdline_popup = {
 					position = {

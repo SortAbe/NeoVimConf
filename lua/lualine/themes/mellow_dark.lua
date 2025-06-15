@@ -24,7 +24,7 @@ local colors = {
   none   = NONE,
 }
 
-local cherry_rainbow = {
+local mellow_dark = {
   normal = {
     a = { fg = colors.mellow_green, bg = colors.grey , "bold", },
     b = { fg = colors.mellow_green, bg = colors.color13 },
@@ -57,4 +57,4 @@ local cherry_rainbow = {
   },
 }
 
-return cherry_rainbow
+return mellow_dark
