@@ -1,3 +1,5 @@
+vim.cmd("hi clear")
+vim.opt.termguicolors = true
 vim.cmd("colorscheme cherry_rainbow")
 
 require("meta_colors/meta")
@@ -92,14 +94,6 @@ vim.api.nvim_create_autocmd("VimLeave", { command = "set guicursor=a:ver20-blink
 --Python
 vim.cmd("let g:python3_host_prog = '/usr/bin/python3'")
 
-local _border = "single"
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = _border,
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = _border,
-})
-
 diag_show = true
 local Hover = vim.api.nvim_create_augroup("Hover", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -141,7 +135,7 @@ vim.lsp.enable({
 	"cssls",
 	"denols",
 	"html",
-	"phpactor",
+	"intelephense",
 	"pyright",
 	"rust-analyzer",
 	"sqls",

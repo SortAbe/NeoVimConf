@@ -1,6 +1,3 @@
-vim.opt.termguicolors = true
-vim.cmd("hi clear")
-
 --Background
 vim.api.nvim_set_hl(0, "Normal", {fg = "NONE", bg = "#1D1D1D"})
 

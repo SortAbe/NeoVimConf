@@ -1,4 +1,4 @@
-return { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons", config = function() 
+return { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons", config = function() 
 require("bufferline").setup({
 	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -25,7 +25,6 @@ require("bufferline").setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
 		separator_style = "slant",
-		--always_show_bufferline = false,
 		offsets = { { text_align = "left", separator = true } },
 	},
 })

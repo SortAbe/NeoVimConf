@@ -1,8 +1,3 @@
-vim.opt.termguicolors = true
-vim.cmd("hi clear")
-
--- require("map")
-
 --Background
 vim.api.nvim_set_hl(0, "Normal", {fg = "NONE", bg = "#151515"})
 
@@ -35,5 +30,3 @@ vim.api.nvim_set_hl(0, "Tag", {fg = "#5E409D" })
 vim.api.nvim_set_hl(0, "StorageClass", {fg = "#CE5D97", gui=bold })
 vim.api.nvim_set_hl(0, "Title", {fg = "#FF80FF" })
 --End Of Language
-
--- require("meta")
