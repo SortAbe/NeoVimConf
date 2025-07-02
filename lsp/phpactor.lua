@@ -1,4 +1,4 @@
-vim.lsp.config["phpactor"] = {
+return{
 	filetypes = { "php" },
 	workspace_required = false,
 	root_markers = {

@@ -1,4 +1,4 @@
-vim.lsp.config["arduino_language_server"] = {
+return{
 	filetypes = {
 		"arduino",
 	},

@@ -1,4 +1,4 @@
-vim.lsp.config["cssls"] = {
+return{
 	filetypes = {
 		"css",
 		"scss",

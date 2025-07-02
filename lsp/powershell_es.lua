@@ -1,4 +1,4 @@
-vim.lsp.config["powershell_es"] = {
+return{
 	filetypes = {
 		"ps1",
 		"powershell",

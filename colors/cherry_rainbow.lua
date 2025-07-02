@@ -10,7 +10,7 @@ vim.api.nvim_set_hl(0, "Variable", {fg = "#DDDDDD" })
 vim.api.nvim_set_hl(0, "Boolean", {fg = "#FF0000" })
 vim.api.nvim_set_hl(0, "Number", {fg = "#FF0000" })
 vim.api.nvim_set_hl(0, "String", {fg = "#4EA006" })
-vim.api.nvim_set_hl(0, "Constant", {fg = "#4A7006" })
+vim.api.nvim_set_hl(0, "Constant", {fg = "#D96DA7" })
 
 vim.api.nvim_set_hl(0, "Comment", {fg = "#777777", bg = "NONE" })
 

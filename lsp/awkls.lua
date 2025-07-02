@@ -1,4 +1,4 @@
-vim.lsp.config["awkls"] = {
+return {
 	cmd = { "awk-language-server" },
 	filetypes = { "awk" },
 	root_markers = {
@@ -6,11 +6,11 @@ vim.lsp.config["awkls"] = {
 	},
 	single_file_support = true,
 	handlers = {
-        ['workspace/workspaceFolders'] = function()
-          return {{
-            uri = 'file://' .. vim.fn.getcwd(),
-            name = 'current_dir',
-          }}
-        end
-	}
+		["workspace/workspaceFolders"] = function()
+			return { {
+				uri = "file://" .. vim.fn.getcwd(),
+				name = "current_dir",
+			} }
+		end,
+	},
 }

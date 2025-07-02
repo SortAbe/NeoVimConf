@@ -28,6 +28,16 @@ vim.api.nvim_create_user_command("Wrap", function(opts)
 	end
 end, { nargs = 0 })
 
+--LLM Tab
+vim.api.nvim_create_user_command("Llm", function(opts)
+	vim.cmd("GpChatToggle tabnew")
+end, { nargs = 0 })
+
+--LLM Tab
+vim.api.nvim_create_user_command("Llmn", function(opts)
+	vim.cmd("GpChatNew tabnew")
+end, { nargs = 0 })
+
 --Clear system cache
 vim.api.nvim_create_user_command("Clear", function(opts)
 	vim.cmd("silent! !rm -rf ~/.local/state/nvim/view/*")

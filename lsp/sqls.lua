@@ -1,4 +1,4 @@
-vim.lsp.config["sqls"] = {
+return {
 	filetypes = {
 		"sql",
 		"mysql",
@@ -9,13 +9,14 @@ vim.lsp.config["sqls"] = {
 		"config.yml",
 	},
 	workspace_required = false,
+	single_file_support = true,
 	cmd = { "sqls" },
 	settings = {
 		sqls = {
 			connections = {
 				{
 					driver = "mysql",
-					dataSourceName = "abe:Evangelion@tcp(localhost:3306)/University",
+					dataSourceName = "abe:Evangelion@tcp(127.0.0.1:3306)/BackupManager",
 				},
 				{
 					driver = "postgresql",

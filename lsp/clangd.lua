@@ -1,4 +1,4 @@
-vim.lsp.config["clangd"] = {
+return {
 	cmd = { "clangd", "-j", "8", "--background-index", "--offset-encoding=utf-8" },
 	detached = true,
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
@@ -14,7 +14,7 @@ vim.lsp.config["clangd"] = {
 	settings = {
 		clangd = {
 			InlayHints = {
-				Enabled  = "yes",
+				Enabled = "yes",
 				ParameterNames = "yes",
 				BlockEnd = "yes",
 				Designators = "yes",
@@ -22,20 +22,27 @@ vim.lsp.config["clangd"] = {
 				DefaultArguments = "yes",
 			},
 			Completion = {
-				AllScopes  = "yes",
+				AllScopes = "yes",
 				ArgumentLists = "FullPlaceholders",
 				HeaderInsertion = "IWYU",
 				CodePatterns = "All",
 			},
 			CompileFlags = {
-				Add  = {"-xc++", "-Wall", "-std=c++17", "-I/usr/include/c++/11", "-I/usr/include/x86_64-linux-gnu/c++/11", "-I/usr/include"},
-				Remove  = {"-W*"},
-				Compiler  = "clang++",
-				CompilationDatabase  = nil,
+				Add = {
+					"-xc++",
+					"-Wall",
+					"-std=c++17",
+					"-I/usr/include/c++/11",
+					"-I/usr/include/x86_64-linux-gnu/c++/11",
+					"-I/usr/include",
+				},
+				Remove = { "-W*" },
+				Compiler = "clang++",
+				CompilationDatabase = nil,
 			},
 			Diagnostics = {
-				ClangTidy  = {
-				  Add = "modernize*",
+				ClangTidy = {
+					Add = "modernize*",
 				},
 			},
 		},
@@ -52,7 +59,4 @@ vim.lsp.config["clangd"] = {
 		},
 		offsetEncoding = { "utf-8", "utf-16" },
 	},
-	on_attach = function()
-		vim.lsp.inlay_hint.enable(true)
-	end,
 }

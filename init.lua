@@ -135,7 +135,8 @@ vim.lsp.enable({
 	"cssls",
 	"denols",
 	"html",
-	"intelephense",
+	"phpactor",
+	"powershell_es",
 	"pyright",
 	"rust-analyzer",
 	"sqls",
@@ -163,6 +164,7 @@ vim.diagnostic.config({
 		[vim.diagnostic.severity.WARN] = "WarningMsg",
 	},
 })
+vim.lsp.inlay_hint.enable(true)
 require("keymap")
 require("clip")
 require("filetype")

@@ -6,8 +6,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "python" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 0
-			-- vim.o.autoindent = false
-			-- vim.o.smartindent = false --when programming a new line autoindents
 			Set = vim.opt
 			Let = vim.g
 			Set.shiftwidth = 0
