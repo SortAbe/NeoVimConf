@@ -16,6 +16,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNew" }, {
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "php" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 4
+			vim.o.autoindent = true
+			vim.o.smartindent = true
 		elseif vim.api.nvim_buf_get_option(0, "filetype") == "html" then
 			vim.opt.expandtab = true
 			vim.opt.shiftwidth = 2

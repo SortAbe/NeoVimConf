@@ -10,7 +10,7 @@ return {
 				css = { "prettierd", "prettier", stop_after_first = true },
 				html = { "prettierd", "prettier", stop_after_first = true },
 				sh = { "beautysh" },
-				sql = { "sqlfmt" },
+				sql = { "sql-formatter" },
 				php = { "pretty-php" },
 				xml = { "xmlformat" },
 				markdown = { "mdformat" },

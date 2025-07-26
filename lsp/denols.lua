@@ -17,10 +17,19 @@ return {
 		"deno.jsonc",
 		".git",
 	},
+	on_init = function(client)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
 	settings = {
 		deno = {
 			enable = true,
+			lint = true,
+			unstable = true,
 			suggest = {
+				autoImports = true,
+				completeFunctionCalls = true,
+				names = true,
+				paths = true,
 				imports = {
 					hosts = {
 						["https://deno.land"] = true,
